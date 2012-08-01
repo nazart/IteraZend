@@ -1,0 +1,18 @@
+#ticker p {
+    line-height: 25px;
+    margin: 0;
+    padding: 0 10px;
+}
+#ticker {
+    background: url("/images/ticker-bg.png") no-repeat scroll 0 0 #F9F9F9;
+    height: 25px;
+    margin: 12px 0 20px 52px;
+    width: 880px;
+    color: #666666;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
+}
+#ticker a{
+  text-decoration:none;
+  color: #666666;
+} 

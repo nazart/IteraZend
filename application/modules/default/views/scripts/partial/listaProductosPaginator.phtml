@@ -1,0 +1,35 @@
+<?php if (count($this->productos) > 0) { ?>
+    <ul>
+        <?php foreach ($this->productos as $index): ?>
+            <li class="">
+                <div id="">
+                    <h5>
+                        <a href="<?php echo $this->baseUrl(); ?>/productos/detalle-producto/<?php echo $index['SlugProducto'] ?>" title="<?php echo $index['NombreProducto'] ?>"><?php echo $index['NombreProducto'] ?></a>
+                    </h5>
+                    <div>
+                        <a href="<?php echo $this->baseUrl(); ?>/productos/detalle-producto/<?php echo $index['SlugProducto'] ?>" title="<?php echo $index['NombreProducto'] ?>">
+                            <img src="<?php echo CST_Server_ServerDinamic::getUrl(); ?>/imagen-producto/<?php echo $index['ImagenProducto'] ?>?<?php echo rand(0, 1000); ?>" alt="<?php echo $index['NombreProducto'] ?>" />
+                        </a>
+                    </div>
+                    <div>
+                        <form id="form_pres_<?php echo $index['IdProducto'] ?>" action="/carrito-compras/registrar-producto" method="Post">
+                            <input type="hidden" id="hidden_idproducto_<?php echo $index['IdProducto'] ?>" name="slugProducto" value="<?php echo $index['SlugProducto'] ?>" />
+                            <p>
+                                <a href="/cotizar-productos" id="ajax_id_product_<?php echo $index['IdProducto'] ?>" rel="ajax_id_product_<?php echo $index['IdProducto'] ?>"  title="Añadir al carrito">
+                                    Cotizar
+                                </a>
+                                <a href="/productos/detalle-producto/<?php echo $index['SlugProducto'] ?>" title="Ver">
+                                    Ver
+                                </a>
+                            </p>
+                        </form>
+                    </div>						
+                </div>
+            </li>
+        <?php endforeach; ?>
+
+    </ul>
+    <?php echo $this->paginator; ?>
+<?php } else { ?>    
+    No se encontro ningun producto
+<?php } ?> 
