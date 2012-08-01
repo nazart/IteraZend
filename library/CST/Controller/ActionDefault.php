@@ -26,8 +26,7 @@ class CST_Controller_ActionDefault extends CST_Controller_Action {
             'soluciones' => array('label' => 'Soluciones', 'uri' => '/soluciones', 'orden' => '4'),
             'contactenos' => array('label' => 'Contactenos', 'uri' => '/contactenos', 'orden' => '5'),
         );
-        print_r($configNavigationArray);
-        print_r($listaCategorias);
+
         
         //if (!$listaCategorias)
             //$listaCategorias = array();
