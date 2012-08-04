@@ -25,10 +25,19 @@ class Application_Model_Soluciones {
         return $this->_modelSoluciones
                 ->getAdapter()
                 ->select()
-                ->from(array('catsol'=>$this->_modelCategoriaSoluciones->getName()))
-                ->join(array('sol'=>$this->_modelSoluciones), 
+                ->from(array('catsol'=>$this->_modelCategoriaSoluciones->getName()),
+                        array('catsol.IdCategoriaSoluciones',
+                            'catsol.NombreCategoriaSoluciones',
+                            'catsol.SlugCategoriaSolucion',
+                            'sol.IdSoluciones',
+                            'sol.NombreSoluciones',
+                            'sol.IdCategoriaSoluciones as solucionCategoria',
+                            'sol.SlugSoluciones'
+                            ))
+                ->join(array('sol'=>$this->_modelSoluciones->getName()), 
                         'catsol.IdCategoriaSoluciones=sol.IdCategoriaSoluciones')
-            ;
+                ->query()
+                ->fetchAll();
     }    
 }
 

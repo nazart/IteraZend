@@ -7,8 +7,8 @@
 </div>
 <div id="ticker">
     <p style="visibility:visible;opacity:1;">
-        <a href="#">
-            <span style="color:#006B6E; font-weight:bold;">&iquest;Desea saber m&aacute;s acerca de ESET Endpoint Solutions? <strong>Haga clic aqu&iacute;</strong>
+        <a href="/nosotros">
+            <span style="color:#006B6E; font-weight:bold;">&iquest;Desea saber m&aacute;s acerca de Itera ? <strong>Haga clic aqu&iacute;</strong>
             </span>
         </a>
     </p>
@@ -34,21 +34,18 @@
                 </div>
                 <?php endforeach; ?>
                 <div class="home_slide">
-                    <h2>Accesos R&aacute;pidos</h2>
+                    <h2>Nuestras Marcas</h2>
                     <div class="narrow_column_content" style="padding:0px;">
                         <div class="sidebox-outer-180">
                             <div class="sidebox-180">
                                 <div class="sidebox-list"> 
-                                    <a href="/comprar/" style="padding:5px 0 5px 15px;"><img src="/images/icons/icono_acceso_comprar.png" width="16" height="16" align="absmiddle" /> Comprar</a> 
-                                    <a href="/registracion-producto/" style="padding:5px 0 5px 15px;"><img src="/images/icons/icono_acceso_activacion.png" width="16" height="16" align="absmiddle" /> Activaci&oacute;n</a>
-                                    <a href="/download/trial-gratuito/" style="padding:5px 0 5px 15px;"><img src="/images/icons/icono_acceso_triall_gratuito.png" width="16" height="16" align="absmiddle" /> Trial Gratuito</a> 
-                                    <a href="/online-scanner/" style="padding:5px 0 5px 15px;"><img src="/images/icons/icono_acceso_online_scanner.png" width="16" height="16" align="absmiddle" /> Online Scanner</a> 
-                                    <a href="/hogar/compare-eset/" style="padding:5px 0 5px 15px;"><img src="/images/icons/icono_acceso_eset_vs_competencia.png" width="16" height="16" align="absmiddle" /> ESET vs. la competencia</a> 
-                                    <!--a href="/pe/press-center/events/" style="padding:5px 0 5px 15px;"><img src="/images/icons/icono_acceso_eventos.png" width="16" height="16" align="absmiddle" /> Eventos</a--> 
-                                    <a href="http://blogs.eset-la.com/" style="padding:5px 0 5px 15px;"><img src="/images/icons/icono_acceso_blog.png" width="16" height="16" align="absmiddle" /> Blogs de ESET</a> 
-                                    <a href="/compania/newsletter/" style="padding:5px 0 5px 15px;"><img src="/images/icons/icono_acceso_boletin.png" width="16" height="16" align="absmiddle" /> Bolet&iacute;n</a> 
-                                    <a href="/renew/" style="padding:5px 0 5px 15px;"><img src="/images/icons/icono_acceso_comprar.png" width="16" height="16" align="absmiddle" /> Renovar en l&iacute;nea</a> 
-                                    <a href="/comprar/obtener-presupuesto-gratuito" style="padding:5px 0 5px 15px;"><img src="/images/icons/icono_acceso_presupuesto_gratuito.png" width="16" height="16" align="absmiddle" /> Presupuesto Gratuito</a> 
+                                    <?php foreach($this->listaMarcas as $index):?>
+                                    <a href="/productos?marca=<?php echo $index['SlugMarca']; ?>" style="padding:5px 0 5px 15px;">
+                                        <img src="/images/icons/icono_acceso_comprar.png" width="16" height="16" align="absmiddle" /> 
+                                        <?php echo $index['NombreMarca']; ?>
+                                        (<?php echo $index['countProductos']; ?>)
+                                    </a> 
+                                    <?php endforeach; ?>
                                 </div>
                             </div>
                         </div>

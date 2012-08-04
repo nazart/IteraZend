@@ -1,0 +1,11 @@
+<ul>
+    <?php foreach ($this->listaMarcas as $index): ?>
+    <li>
+        <a href="/productos?marca=<?php echo $index['SlugMarca']; ?>" style="padding:5px 0 5px 15px;">
+            <img src="/images/icons/icono_acceso_comprar.png" width="16" height="16" align="absmiddle" /> 
+            <?php echo $index['NombreMarca']; ?> 
+            (<?php echo $index['countProductos']; ?>)
+        </a> 
+    </li>
+    <?php endforeach; ?>
+</ul>

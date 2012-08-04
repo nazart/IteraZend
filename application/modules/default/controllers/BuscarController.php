@@ -23,9 +23,8 @@ class Default_BuscarController extends CST_Controller_ActionDefault {
         if (trim($this->_getParam('search')) != '') {
             $this->_redirect('/buscar/' . $filter->filter(trim($this->_getParam('search')), '-', 0));
         }
-        $productos = new Application_Entity_Producto();
         $slug = $filter->filter($this->_getParam('slugBusqueda', ''), '-', 0);
-        $result = $productos->buscarProductos(str_replace('-', "|", $slug));
+        $result = Application_Entity_Producto::buscarProductos(str_replace('-', "|", $slug));
         $paginator = Zend_Paginator::factory($result);
         $paginator->setCurrentPageNumber($this->_getParam('page'));
         $paginator->setItemCountPerPage(2);

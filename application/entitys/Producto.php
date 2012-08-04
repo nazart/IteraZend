@@ -21,21 +21,27 @@ class Application_Entity_Producto {
         $arbol = $modelProducto->listarArbolCategoriaProducto();
         return self::listarAreasArbol($arbol);
     }
-    static function listarTodosLosProductos(){
+    static function listarTodosLosProductos($slugMarca=''){
+        
         $modelProducto = new Application_Model_Producto();
-        return $modelProducto->listarTodosProductos();
+        return $modelProducto->listarTodosProductos($slugMarca);
     }
-    static function listarProductosArea($slugArea){
+    static function listarProductosArea($slugArea,$slugMarca=''){
         $modelProducto = new Application_Model_Producto();
-        return $modelProducto->listarProductosArea($slugArea);
+        return $modelProducto->listarProductosArea($slugArea,'',$slugMarca);
     }
-    static function listarProductosCategoria($slugCategoria){
+    static function listarProductosCategoria($slugCategoria,$slugMarca=''){
         $modelProducto = new Application_Model_Producto();
-        return $modelProducto->listarProductosCategoria($slugCategoria);
+        return $modelProducto->listarProductosCategoria($slugCategoria,'',$slugMarca);
     }
-    static function listarProductosSubCategoria($slugSubCategoria){
+    static function listarProductosSubCategoria($slugSubCategoria,$slugMarca=''){
         $modelProducto = new Application_Model_Producto();
-        return $modelProducto->listarProductosSubcategoria($slugSubCategoria);
+        return $modelProducto->listarProductosSubcategoria($slugSubCategoria,'',$slugMarca);
+    }
+    static function buscarProductos($slugBusqueda){
+        $modelProducto = new Application_Model_Producto();
+        $productos = $modelProducto->buscarProductos($slugBusqueda);
+        return $productos;
     }
 
     private function listarAreasArbol($arbol) {

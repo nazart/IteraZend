@@ -25,6 +25,18 @@ class Application_Model_Area {
                 ->query()
                 ->fetchAll();
     }    
+    function identificarArea($idArea='',$slugArea=''){
+        $result = $this->_modelArea
+                ->select();
+        if($idArea!=''){
+            $result = $result->where('IdArea=?',$idArea);
+        }elseif($slugArea!=''){
+            $result = $result->where('SlugArea=?',$slugArea);
+        }
+        $result = $result->query()
+                ->fetch();
+        return $result;
+    }
     
 }
 

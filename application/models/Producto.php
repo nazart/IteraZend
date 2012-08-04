@@ -17,12 +17,18 @@ class Application_Model_Producto {
     private $_modelArea;
     private $_modelSubCategoriaProducto;
     private $_modelCategoriaProducto;
+    private $_modelDetalleSlug;
+    private $_modelSlug;
+    private $_modelMarca;
 
     function __construct() {
         $this->_modelProducto = new Application_Model_TableBase_Producto();
+        $this->_modelMarca = new Application_Model_TableBase_Marca();
         $this->_modelArea = new Application_Model_TableBase_Area();
         $this->_modelSubCategoriaProducto = new Application_Model_TableBase_SubCategoriaProducto();
         $this->_modelCategoriaProducto = new Application_Model_TableBase_CategoriaProducto();
+        $this->_modelDetalleSlug = new Application_Model_TableBase_DetalleSlug();
+        $this->_modelSlug = new Application_Model_TableBase_Slug();
     }
 
     function listarArbolCategoriaProducto() {
@@ -47,14 +53,31 @@ class Application_Model_Producto {
                         ->query()->fetchAll();
     }
 
-    function listarTodosProductos() {
-        return $this->_modelProducto
-                ->select()
-                ->query()
-                ->fetchAll();
+    function listarTodosProductos($slugMarca='') {
+        if ($slugMarca == '') {
+            return $this->_modelProducto
+                            ->select()
+                            ->query()
+                            ->fetchAll();
+        } else {
+            return $this->_modelProducto
+                            ->getAdapter()
+                            ->select()
+                            ->from(array('pr' => $this->_modelProducto->getName()), array(
+                                'pr.IdProducto',
+                                'pr.NombreProducto',
+                                'pr.IdArea',
+                                'pr.IdCategoriaProducto',
+                                'pr.IdSubCategoriaProducto',
+                                'pr.DescricionCortaProducto',
+                                'pr.SlugProducto'
+                            ))
+                            ->join(array('mar' => $this->_modelMarca->getName()), 'mar.IdMarca=pr.IdMarca')
+                ->where('mar.SlugMarca=?',$slugMarca);
+        }
     }
 
-    function listarProductosArea($slugArea='', $idArea='') {
+    function listarProductosArea($slugArea='', $idArea='', $slugMarca='') {
         $baseProducto = $this->_modelProducto
                 ->getAdapter()
                 ->select()
@@ -65,10 +88,16 @@ class Application_Model_Producto {
         } elseif ($idArea != '') {
             $baseProducto = $baseProducto->where('IdArea=?', $idArea);
         }
+
+        if ($slugMarca != '') {
+            $baseProducto->join(array('mar' => $this->_modelMarca->getName()), 'mar.IdMarca=pr.IdMarca')
+                    ->where('mar.SlugMarca=?',$slugMarca);
+        }
+
         return $baseProducto->query()->fetchAll();
     }
 
-    function listarProductosCategoria($slugCategoria='', $idCategoria='') {
+    function listarProductosCategoria($slugCategoria='', $idCategoria='', $slugMarca='') {
         $baseProducto = $this->_modelProducto
                 ->getAdapter()
                 ->select()
@@ -79,10 +108,14 @@ class Application_Model_Producto {
         } elseif ($idCategoria != '') {
             $baseProducto = $baseProducto->where('IdCategoriaProducto=?', $idCategoria);
         }
+        if ($slugMarca != '') {
+            $baseProducto->join(array('mar' => $this->_modelMarca->getName()), 'mar.IdMarca=pr.IdMarca')
+                    ->where('mar.SlugMarca=?',$slugMarca);
+        }
         return $baseProducto->query()->fetchAll();
     }
 
-    function listarProductosSubcategoria($slugSubCategoria='', $idSubCategoria='') {
+    function listarProductosSubcategoria($slugSubCategoria='', $idSubCategoria='', $slugMarca='') {
         $baseProducto = $this->_modelProducto
                 ->getAdapter()
                 ->select()
@@ -93,7 +126,34 @@ class Application_Model_Producto {
         } elseif ($idCategoria != '') {
             $baseProducto = $baseProducto->where('IdSubCategoriaProducto=?', $idSubCategoria);
         }
+        if ($slugMarca != '') {
+            $baseProducto->join(array('mar' => $this->_modelMarca->getName()), 'mar.IdMarca=pr.IdMarca')
+                    ->where('mar.SlugMarca=?',$slugMarca);
+        }
         return $baseProducto->query()->fetchAll();
+    }
+
+    function buscarProductos($arraySlug='') {
+        $result = $this->_modelProducto->getAdapter()
+                ->select()
+                ->distinct()
+                ->from(array('pr' => $this->_modelProducto->getName()), array(
+                    'pr.IdProducto',
+                    'pr.NombreProducto',
+                    'pr.IdArea',
+                    'pr.IdCategoriaProducto',
+                    'pr.IdSubCategoriaProducto',
+                    'pr.DescricionCortaProducto',
+                    'pr.SlugProducto'
+                        )
+                )
+                ->join(array('dts' => $this->_modelDetalleSlug->getName()), 'pr.IdProducto = dts.IdProducto', '')
+                ->join(array('sl' => $this->_modelSlug->getName()), 'sl.IdSlug = dts.IdSlug', '');
+        if ($arraySlug != '') {
+            $result->where('sl.NombreSlug REGEXP ?', array($arraySlug));
+        }
+
+        return $result;
     }
 
 }

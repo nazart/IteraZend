@@ -41,6 +41,8 @@ abstract class CST_Entity {
             }    
      return $propsFormat;
     }
+  
+  
 
 }
 

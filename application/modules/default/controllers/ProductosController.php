@@ -18,23 +18,23 @@ class Default_ProductosController extends CST_Controller_ActionDefault {
     }
 
     public function indexAction() {
-        $this->view->productos = $this->listarProductosPaginator();
+        $this->view->productos = $this->listarProductosPaginator('','',$this->_getParam('marca',''));
     }
 
-    private function listarProductosPaginator($tipo='allProduct',$valorSlug='') {
+    private function listarProductosPaginator($tipo='allProduct',$valorSlug='',$slugMarca='') {
         $productos = new Application_Entity_Producto();
         switch ($tipo) {
             case 'area':
-                $result = Application_Entity_Producto::listarProductosArea($valorSlug);
+                $result = Application_Entity_Producto::listarProductosArea($valorSlug,$slugMarca);
                 break;
             case 'categoria':
-                $result = Application_Entity_Producto::listarProductosCategoria($valorSlug);
+                $result = Application_Entity_Producto::listarProductosCategoria($valorSlug,$slugMarca);
                 break;
             case 'subcategoria':
-                $result = Application_Entity_Producto::listarProductosSubCategoria($valorSlug);
+                $result = Application_Entity_Producto::listarProductosSubCategoria($valorSlug,$slugMarca);
                 break;
             default:
-                $result = Application_Entity_Producto::listarTodosLosProductos();
+                $result = Application_Entity_Producto::listarTodosLosProductos($slugMarca);
                 break;
         }
        
