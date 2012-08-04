@@ -25,6 +25,7 @@ CREATE TABLE `area` (
   `ImagenArea` char(100) DEFAULT NULL,
   `DescripcionCortaArea` char(100) DEFAULT NULL,
   `SlugArea` char(200) DEFAULT NULL,
+  `DescripcionArea` text,
   PRIMARY KEY (`IdArea`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
@@ -32,7 +33,7 @@ CREATE TABLE `area` (
 
 LOCK TABLES `area` WRITE;
 
-insert  into `area`(`IdArea`,`NombreArea`,`ImagenArea`,`DescripcionCortaArea`,`SlugArea`) values (1,'area1','banner-eset-smartsecurity-home.jpg','sadasdasd asdasdasd','area1'),(2,'area2','banner-eset-smartsecurity-home.jpg','asdasdasd asdasd','area2'),(3,'area3','banner-eset-smartsecurity-home.jpg','asdads asdasdas','area3');
+insert  into `area`(`IdArea`,`NombreArea`,`ImagenArea`,`DescripcionCortaArea`,`SlugArea`,`DescripcionArea`) values (1,'area1','banner-eset-smartsecurity-home.jpg','sadasdasd asdasdasd','area1','asdasdasasdasdasdasd\r\nasdasdasd\r\nasd\r\na\r\nsda\r\nsd\r\nasd\r\nsad'),(2,'area2','banner-eset-smartsecurity-home.jpg','asdasdasd asdasd','area2','asdasdasasdasdasdasd\r\nasdasdasd\r\nasd\r\na\r\nsda\r\nsd\r\nasd\r\nsad'),(3,'area3','banner-eset-smartsecurity-home.jpg','asdads asdasdas','area3','asdasdasasdasdasdasd\r\nasdasdasd\r\nasd\r\na\r\nsda\r\nsd\r\nasd\r\nsad');
 
 UNLOCK TABLES;
 
@@ -140,7 +141,46 @@ CREATE TABLE `core_session` (
 
 LOCK TABLES `core_session` WRITE;
 
-insert  into `core_session`(`Id`,`save_path`,`name`,`Modified`,`LifeTime`,`Data`) values ('2fd785pf5slrnladilcapcclc6','','',1343859051,1440,'');
+insert  into `core_session`(`Id`,`save_path`,`name`,`Modified`,`LifeTime`,`Data`) values ('2fd785pf5slrnladilcapcclc6','','',1343894945,1440,''),('4g0lak4ilbmel3kboepjqcnbv0','','',1343976011,1440,''),('m0htoqubn2q9jl7sj66uvl5mj7','','',1344109928,1440,''),('pjvl7r7ea7rr9outdpfoq2mkv1','','',1343975990,1440,'');
+
+UNLOCK TABLES;
+
+/*Table structure for table `detalleslug` */
+
+DROP TABLE IF EXISTS `detalleslug`;
+
+CREATE TABLE `detalleslug` (
+  `IdDetalleSlug` int(11) NOT NULL AUTO_INCREMENT,
+  `IdProducto` int(11) DEFAULT NULL,
+  `IdSlug` int(11) DEFAULT NULL,
+  PRIMARY KEY (`IdDetalleSlug`)
+) ENGINE=InnoDB AUTO_INCREMENT=415 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+/*Data for the table `detalleslug` */
+
+LOCK TABLES `detalleslug` WRITE;
+
+insert  into `detalleslug`(`IdDetalleSlug`,`IdProducto`,`IdSlug`) values (411,2,44),(412,2,46),(413,1,45),(414,1,57);
+
+UNLOCK TABLES;
+
+/*Table structure for table `marca` */
+
+DROP TABLE IF EXISTS `marca`;
+
+CREATE TABLE `marca` (
+  `IdMarca` int(11) NOT NULL AUTO_INCREMENT,
+  `NombreMarca` char(200) DEFAULT NULL,
+  `SlugMarca` char(200) DEFAULT NULL,
+  `ImagenMarca` char(200) DEFAULT NULL,
+  PRIMARY KEY (`IdMarca`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+/*Data for the table `marca` */
+
+LOCK TABLES `marca` WRITE;
+
+insert  into `marca`(`IdMarca`,`NombreMarca`,`SlugMarca`,`ImagenMarca`) values (1,'lg','lg','lg.jpg'),(2,'samsung','samsung','sansumg.jpg'),(3,'toshiba','toshiba','toshiba.jpg'),(4,'AOC','aoc','aoc.jpg');
 
 UNLOCK TABLES;
 
@@ -177,14 +217,33 @@ CREATE TABLE `producto` (
   `PrecioProducto` float DEFAULT NULL,
   `DescricionCortaProducto` char(50) DEFAULT NULL,
   `SlugProducto` char(150) DEFAULT NULL,
+  `IdMarca` int(11) DEFAULT NULL,
   PRIMARY KEY (`IdProducto`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 /*Data for the table `producto` */
 
 LOCK TABLES `producto` WRITE;
 
-insert  into `producto`(`IdProducto`,`NombreProducto`,`IdArea`,`IdCategoriaProducto`,`IdSubCategoriaProducto`,`PrecioProducto`,`DescricionCortaProducto`,`SlugProducto`) values (1,'Caramelo',1,1,1,NULL,NULL,NULL),(2,'Azucar',2,3,NULL,NULL,NULL,NULL);
+insert  into `producto`(`IdProducto`,`NombreProducto`,`IdArea`,`IdCategoriaProducto`,`IdSubCategoriaProducto`,`PrecioProducto`,`DescricionCortaProducto`,`SlugProducto`,`IdMarca`) values (1,'Caramelo',1,1,1,NULL,NULL,NULL,1),(2,'Azucar',2,3,NULL,NULL,NULL,NULL,2),(3,'laptop',2,1,1,NULL,NULL,NULL,1);
+
+UNLOCK TABLES;
+
+/*Table structure for table `slug` */
+
+DROP TABLE IF EXISTS `slug`;
+
+CREATE TABLE `slug` (
+  `IdSlug` int(11) NOT NULL AUTO_INCREMENT,
+  `NombreSlug` char(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`IdSlug`)
+) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+/*Data for the table `slug` */
+
+LOCK TABLES `slug` WRITE;
+
+insert  into `slug`(`IdSlug`,`NombreSlug`) values (44,'azucar'),(45,'caramelo'),(46,'azucarado'),(47,'acaramelado');
 
 UNLOCK TABLES;
 
