@@ -1430,6 +1430,9 @@ a#competitor_challenge_button:hover {
 
 #quicklinks {
 	padding:28px 0 0 15px;
+        float: left;
+        width: 458px;
+        
 }
 
 #product_selector {
@@ -2350,13 +2353,12 @@ ul#nav li.first:hover > ul {
 /******************************************************************************************/
 
 .contenedor-redes-sociales {
-	width:500px;
+	
 	float:right;
+        padding-top: 20px;
 }
 .redes-sociales-iconos {
 	overflow: hidden;
-	width: 440px !Important;
-    width: 426px;
 	height:59px;
 	float:right;
 }
@@ -2366,7 +2368,7 @@ ul#nav li.first:hover > ul {
 	float:left;
 }
 .redes-sociales-iconos-center {
-	width: 395px;
+	/*width: 395px;*/
 	height:51px;
 	float:left;
 	padding:8px 10px 0 10px;
