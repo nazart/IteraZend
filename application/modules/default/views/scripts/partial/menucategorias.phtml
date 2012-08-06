@@ -41,3 +41,18 @@
         ?>
     </ul>
 </div>
+<?php if(!empty($this->listaMarcas)){ ?>
+<div class="productos_marcas_treeMenu">
+    <div>Marcas</div>
+    <ul>
+    <?php foreach($this->listaMarcas as $index):?>
+        <li> 
+            <a href="?marca=<?php echo $index['SlugMarca'] ?>"><input type="checkbox" name="marcas[]" value="<?php echo $index['SlugMarca'] ?>"/>  <?php echo $index['NombreMarca'] ?> </a>
+        </li>
+    <?php endforeach;?>
+        <li> 
+            <a href="/productos"> <input type="checkbox" name="marcas[]" value=""/> Todas </a>
+        </li>
+    </ul>
+</div>
+<?php } ?>
