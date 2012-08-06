@@ -16,6 +16,9 @@ class Default_BuscarController extends CST_Controller_ActionDefault {
         parent::init();
         $this->view->headLink()->appendStylesheet(CST_Server_ServerStatic::getUrl().'/css/productos.css');
         /* Initialize action controller here */
+        $filter = new CST_Filter_SeoUrl();
+        
+        $this->view->breadcrumbs = 'Buscar &raquo '.$filter->filter($this->_getParam('slugBusqueda', ''), '-', 0);
     }
 
     public function indexAction() {

@@ -77,24 +77,29 @@
                             </p>
                         </div>
 
-                    <?php
-                    } 
+                        <?php
+                    }
                     ?>
-                    <?php if(!$indexBool){
-                                    
-                                    echo '<div class="breadcrumb">Estas en: '.$this->navigation()
+                    <?php
+                    if (!$indexBool) {
+                        if($this->breadcrumbs==''){
+                        echo '<div class="breadcrumb">Estas en: <a href="/"> Inicio </a> &raquo; ' . $this->navigation()
                                 ->breadcrumbs()
                                 ->setMinDepth(0)
                                 ->setLinkLast(true)
-                                ->setSeparator(" &raquo; ". PHP_EOL).'</div><hr></hr><p>';
-                                } ?>
+                                ->setSeparator(" &raquo; " . PHP_EOL) . '</div><hr></hr><p>';
+                    }}else{
+                        echo '<div class="breadcrumb">Estas en: <a href="/"> Inicio </a> &raquo; ' .
+                                $this->breadcrumbs . '</div><hr></hr><p>';
+                    }
+                    ?>
                     <div id="content_wrapper">
-                        
+
                         <div id="content_homepage" style="padding-top:10px; padding-bottom:15px;">
                             <div id="content">
-                                
-                                
-                                
+
+
+
 <?php echo $this->layout()->content ?>
                             </div>
                         </div>
@@ -127,25 +132,6 @@
                                 <div class="redes-sociales-iconos-right"><img src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/images/redes-sociales/right.jpg" width="12" height="59" /></div>
                             </div>
                         </div>
-                        <!--                        <div id="quicklinks">
-                                                    <a href="/comprar" title="">Comprar</a> | <a href="http://blogs.eset-la.com/" target="_blank" title="">Blogs de ESET</a> | <a href="/registracion-producto" title="">Activar Software</a> | <a href="/download/trial-gratuito" title="">Evaluación Gratuita</a> | <a href="/online-scanner" title="">Online Scanner</a> | <a href="/hogar/compare-eset" title="">ESET vs. Competencia</a> | <a href="/pe/centro-prensa" title="">Centro de Prensa</a> | <a href="/centro-amenazas" title="">Centro de Amenazas</a> | <a href="/soporte/contacto" title="">Soporte</a>
-                                                </div>
-                                                <div id="product_selector">
-                                                    <div style="float:left; margin-right:6px"><strong>Todos nuestros Productos:</strong></div>
-                                                    <select id="quicklink_products">
-                                                        <option selected="selected">Seleccionar un Producto</option>
-                                                        <option>prueva</option>
-                                                        <option>ESET NOD32 Antivirus</option>
-                                                        <option>ESET Cybersecurity para Mac</option>
-                                                        <option>ESET Mobile Security</option>
-                                                        <option>ESET Endpoint Security</option>
-                                                        <option>ESET Endpoint Antivirus</option>
-                                                        <option>ESET Remote Administrator</option>
-                                                        <option>ESET Server Security</option>
-                                                        <option>ESET Online Scanner</option>
-                                                        <option>ESET SysInspector</option>
-                                                    </select>
-                                                </div>-->
                     </div>
                     <script type="text/javascript">
                         var quicklink_products = {"ESET Smart Security":"\/hogar\/smart-security","ESET NOD32 Antivirus":"\/hogar\/nod32-antivirus","ESET Cybersecurity para Mac":"\/hogar\/cybersecurity-mac","ESET Mobile Security":"\/hogar\/mobile-security-antivirus","ESET Endpoint Security":"\/empresas\/medianas\/eset-endpoint-security","ESET Endpoint Antivirus":"\/empresas\/medianas\/eset-endpoint-antivirus","ESET Remote Administrator":"\/empresas\/remote-administrator","ESET Server Security":"\/empresas\/server-security","ESET Online Scanner":"\/online-scanner","ESET SysInspector":"\/download\/sysinspector"};
@@ -158,7 +144,7 @@
                 </div>
                 <div id="footer" style="padding-top:13px; padding-bottom:13px; height:50px;">
                     <div class="fl" style="padding-top:30px; width: 980px; text-align: center;">
-                        Av. Los Conquistadores 346 - San Isidro | Telf: (051) 421-1644 | Fax: (051) 421-1644 | e-mail: eortega@itera.com.pe
+                        Jiron Miramar 153 - San Miguel Altura cdra 3 Av La Paz | Telf: (051) 421-1644 | Fax: (051) 421-1644 | e-mail: eortega@itera.com.pe
                         <br>Copyright &copy; <?php echo date('Y'); ?> ITERA S.A.C. </br>
 
                     </div>
