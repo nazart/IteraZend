@@ -13,10 +13,15 @@
 class CST_NavigatonCustom  {
     static function gethtmlPages($page,$nivel=1) {
         $html = '';
-        $html .= "<ul>\n";
         $count=$nivel;
+        $classNivel = 'nivelMenu'.$nivel;
+        $html .= "<ul class='".$classNivel."' >\n";
         foreach ($page as $subpage) {
+            if($subpage->_class==''){
             $html .= "<li>\n";
+            }else{
+                $html .= "<li class='".$subpage->_class."'>\n";
+            }
             if ($subpage->isActive()) {
                 $html .= "<a href='" . $subpage->getHref() . "' class='selected'>" . $subpage->getLabel() . "</a>\n";
                 

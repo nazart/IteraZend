@@ -1,0 +1,32 @@
+.zend_form {
+    width: 500px;
+}
+.zend_form dt{
+    float: left;
+    width: 150px;
+    padding-bottom: 10px;
+    text-align: right;
+}
+.zend_form dd{
+    width: 330px;
+    float: left;
+    padding-bottom: 10px;
+    padding-left: 15px;
+}
+
+.zend_form .errors{
+    color: #d22800;
+}
+
+.submit-button{
+    border: solid 1px #000;
+    width: 60px;
+    height: 24px;
+    background: #069;
+    color: #FFF;
+    font-weight: bold;
+    cursor: pointer;
+}
+.submit-button:hover{
+    background: #59B;
+}

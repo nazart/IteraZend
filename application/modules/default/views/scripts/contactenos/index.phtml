@@ -1,5 +1,32 @@
-<div class="grid_5" >Columna Izquierda</div>
-            <div class="grid_19" >
-                Columna Derecha
-               
-            </div>
+<h1>Atenci&oacute;n al Cliente</h1>
+<hr> </hr>
+
+<?php
+if (!empty($this->flashMessenger)) {
+    ?>
+<p>
+    
+</p>
+    <div class="warning_message">
+        <ul>
+            <?php
+            foreach ($this->flashMessenger as $index):
+                ?>
+                <li><?php echo $index; ?> </li>
+                <?php
+            endforeach;
+            ?>
+        </ul>
+    </div>
+    <?php
+}
+?>
+<br></br>
+
+<?php
+echo $this->form;
+?>
+
+<p>
+    Los campos con asteriscos(*) son obligatorios;
+</p>

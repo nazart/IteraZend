@@ -64,7 +64,7 @@ return array(Zend_Validate_NotEmpty::IS_EMPTY => 'Este campo es obligatorio.',
      */
 
     Zend_Validate_Regex::INVALID => "Invalido tipo esperado, el valor debe ser una cadena, entero o punto flotante",
-    Zend_Validate_Regex::NOT_MATCH => "'%value%' no cumple con el patrón '%pattern%'",
+    Zend_Validate_Regex::NOT_MATCH => "El formato no es valido",
     Zend_Validate_Date::INVALID => "Invalido tipo esperado, el valor debe ser una cadena, entero, array o Zend_Date",
     //Zend_Validate_Date::NOT_YYYY_MM_DD => "El valor no esta en el formato AAAA-MM-DD",
     Zend_Validate_Date::INVALID_DATE => "El valor no aparece como una fecha válida",

@@ -53,6 +53,7 @@ class Application_Entity_Producto {
                 $arbolReturn[$index['SlugArea']]['label'] = $index['NombreArea'];
                 $arbolReturn[$index['SlugArea']]['uri'] = '/productos/'.$index['SlugArea'];
                 $arbolReturn[$index['SlugArea']]['pages'] = self::listarCategoriasAreaArbol($index['IdArea'],$arbol);
+                $arbolReturn[$index['SlugArea']]['class'] = 'MenuSectionArea';
                 $nombreArbol = $index['NombreArea'];
                 $count++;
             }
