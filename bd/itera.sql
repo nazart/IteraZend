@@ -141,7 +141,7 @@ CREATE TABLE `core_session` (
 
 LOCK TABLES `core_session` WRITE;
 
-insert  into `core_session`(`Id`,`save_path`,`name`,`Modified`,`LifeTime`,`Data`) values ('2fd785pf5slrnladilcapcclc6','','',1343894945,1440,''),('4g0lak4ilbmel3kboepjqcnbv0','','',1343976011,1440,''),('m0htoqubn2q9jl7sj66uvl5mj7','','',1344109928,1440,''),('pjvl7r7ea7rr9outdpfoq2mkv1','','',1343975990,1440,'');
+insert  into `core_session`(`Id`,`save_path`,`name`,`Modified`,`LifeTime`,`Data`) values ('2fd785pf5slrnladilcapcclc6','','',1343894945,1440,''),('4g0lak4ilbmel3kboepjqcnbv0','','',1343976011,1440,''),('eqoblvgqgfgr5rjf8iiahe36s0','','',1344238411,1440,''),('m0htoqubn2q9jl7sj66uvl5mj7','','',1344139815,1440,''),('pjvl7r7ea7rr9outdpfoq2mkv1','','',1343975990,1440,''),('snntqat83bbjt74o43ru1485b7','','',1344137114,1440,'');
 
 UNLOCK TABLES;
 
