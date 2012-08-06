@@ -121,9 +121,9 @@ class Application_Model_Producto {
                 ->select()
                 ->from(array('pr' => $this->_modelProducto->getName()))
                 ->join(array('sctg' => $this->_modelSubCategoriaProducto->getName()), 'sctg.IdSubCategoriaProducto=pr.IdSubCategoriaProducto');
-        if ($slugCategoria != '') {
+        if ($slugSubCategoria != '') {
             $baseProducto = $baseProducto->where('SlugSubCategoriaProducto=?', $slugSubCategoria);
-        } elseif ($idCategoria != '') {
+        } elseif ($idSubCategoria != '') {
             $baseProducto = $baseProducto->where('IdSubCategoriaProducto=?', $idSubCategoria);
         }
         if ($slugMarca != '') {
