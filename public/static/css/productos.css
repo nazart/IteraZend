@@ -34,7 +34,7 @@ margin: 0 18px 24px 0;
 position: relative;
     
 }
-.producto_item img {
+.producto_item .img_product {
     display: block;
 height: 135px;
 width: 100%;  
@@ -45,7 +45,9 @@ width: 100%;
     
         
 }
-
+.paginationControl{
+    padding-bottom: 15px;
+}
 
 /*menu*/
 #treeMenu {  right:auto; left:15px; top:23px; width:200px;  font:normal 14px 'Segoe UI', Helvetica, Arial, sans-serif; }

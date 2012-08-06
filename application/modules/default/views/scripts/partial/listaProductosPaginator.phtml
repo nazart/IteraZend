@@ -6,7 +6,7 @@
 
                     <div>
                         <a href="<?php echo $this->baseUrl(); ?>/productos/detalle-producto/<?php echo $index['SlugProducto'] ?>" title="<?php echo $index['NombreProducto'] ?>">
-                            <img src="<?php echo CST_Server_ServerDinamic::getUrl(); ?>/imagen-producto/<?php echo $index['ImagenProducto'] ?>?<?php echo rand(0, 1000); ?>" alt="<?php echo $index['NombreProducto'] ?>" />
+                            <img class="img_product" src="<?php echo CST_Server_ServerDinamic::getUrl(); ?>/imagen-producto/<?php echo $index['ImagenProducto'] ?>?<?php echo rand(0, 1000); ?>" alt="<?php echo $index['NombreProducto'] ?>" />
                         </a>
                     </div>
                     <h5 class="title_producto">
@@ -16,12 +16,14 @@
                         <form id="form_pres_<?php echo $index['IdProducto'] ?>" action="/carrito-compras/registrar-producto" method="Post">
                             <input type="hidden" id="hidden_idproducto_<?php echo $index['IdProducto'] ?>" name="slugProducto" value="<?php echo $index['SlugProducto'] ?>" />
                             <p>
-                                <a href="/cotizar-productos" id="ajax_id_product_<?php echo $index['IdProducto'] ?>" rel="ajax_id_product_<?php echo $index['IdProducto'] ?>"  title="Añadir al carrito">
-                                    Cotizar
-                                </a>
                                 <a href="/productos/detalle-producto/<?php echo $index['SlugProducto'] ?>" title="Ver">
-                                    Ver
+                                    Ver <img src="/static/images/double_arrow_right.gif" alt="Conozca más"/>
                                 </a>
+                                <a style="float: right" href="/cotizar-productos" id="ajax_id_product_<?php echo $index['IdProducto'] ?>" rel="ajax_id_product_<?php echo $index['IdProducto'] ?>"  title="Añadir al carrito">
+                                    <img src="/static/images/btcotizar.jpg" alt="Conozca más"/>
+                                </a>
+                                
+                                
                             </p>
                         </form>
                     </div>						
