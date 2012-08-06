@@ -1,11 +1,48 @@
-<ul>
-    <?php foreach ($this->listaMarcas as $index): ?>
-    <li>
-        <a href="/productos?marca=<?php echo $index['SlugMarca']; ?>" style="padding:5px 0 5px 15px;">
-            <img src="/images/icons/icono_acceso_comprar.png" width="16" height="16" align="absmiddle" /> 
-            <?php echo $index['NombreMarca']; ?> 
-            (<?php echo $index['countProductos']; ?>)
-        </a> 
-    </li>
-    <?php endforeach; ?>
-</ul>
+<div class="ListaMarcas">
+    <ul>
+        <?php foreach ($this->listaMarcas as $index => $valor): ?>
+            <li class="ItemMarca">
+                <div class="ItemMarcaImagen">
+                    <img src="<?php echo $this->listaMarcas[$index][0]['ImagenMarca']; ?>"/>
+                </div>
+                <div class="ItemMarcaNombre">
+                    <?php echo $this->listaMarcas[$index][0]['NombreMarca']; ?>
+                </div>
+                <div class="clear"></div>
+                <div class="ItemMarcaLinkAll"> 
+                    <div class="ItemMarcaLinkAllLeft">
+                    </div>
+                    <div class="ItemMarcaLinkAllCenter">
+                    <a href="/productos?marca=<?php echo $this->listaMarcas[$index][0]['SlugMarca']; ?>" >
+                        Todas las Marcas
+                    </a>    
+                    </div>
+                    <div class="ItemMarcaLinkAllRight">
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <hr></hr>
+                <p></p>
+                <div class="ItemMarcaProductosDestacados">
+                    <div style="font-size: 16px; font-weight: bold; padding-bottom: 15px;">Productos Destacados</div>
+                    <ul>
+                        <?php foreach ($valor as $index): ?>
+                            <li>
+                                <div class="ItemMarcaProductosDestacadosImagen">
+                                <a href="/productos?marca=<?php echo $index['SlugMarca']; ?>" >
+                                    <img src="<?php echo $index['NombreImagenProducto']; ?>" width="16" height="16" align="absmiddle" /> 
+                                </a> 
+                                </div>
+                                <div class="ItemMarcaProductosDestacadosNombre">
+                                    <a href="/producto/<?php echo $index['SlugProducto']; ?>"><?php echo $index['NombreProducto']; ?> </a>
+                                </div>
+                                <div class="clear"></div>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>    
+            </li>
+        <?php endforeach; ?>
+        
+    </ul>
+</div>

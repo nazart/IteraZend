@@ -1,0 +1,92 @@
+/* 
+    Document   : marca
+    Created on : 06-ago-2012, 3:32:43
+    Author     : Laptop
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+.ItemMarca{
+    float: left;
+    width: 257px;
+    height: 315px;
+    padding: 8px;
+    background-color: white;
+    border: 1px solid #ECECEC;
+    margin: 0 18px 24px 0;
+    position: relative;
+}
+.ItemMarcaImagen {
+    height: 70px;
+    width: 70px;  
+    padding-top: 10px;
+    padding-left: 10px;
+    border: 1px solid #ECECEC;
+    float: left;
+}
+.ItemMarcaImagen img{
+    height: 60px;
+    width: 60px;  
+    border: 1px solid #ECECEC;
+}
+.ItemMarcaNombre{
+    float: right;
+    width: 150px;
+    text-align: right;
+    font-size: large;
+}
+.ItemMarcaLinkAll{
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 40px;
+    padding-left: 65px;
+}
+.ItemMarcaLinkAllLeft{
+    background:url(../images/bg-button-blue-med-left.png);
+    width: 9px;
+    height: 28px;
+    float: left;
+}
+.ItemMarcaLinkAllRight{
+    background:url(../images/bg-button-blue-med-right.png);
+    width: 9px;
+    height: 28px;
+    float: left;
+}
+.ItemMarcaLinkAllCenter{
+    background:url(../images/bg-button-blue-med-center.png) repeat-x;
+    width: 120px;
+    height: 28px;
+    float: left;
+    padding-top: 5px;
+}
+.ItemMarcaLinkAllCenter a{
+    font-size: 13px;
+    color: #FFF;
+    font-weight: bold;
+}
+.ItemMarcaProductosDestacadosImagen{
+    width: 100px;
+    height: 60px;
+    
+    float: left;
+    margin-bottom: 10px;
+    padding-right: 10px;
+    
+    
+}
+.ItemMarcaProductosDestacadosImagen img{
+    width: 95px;
+    height: 55px;
+    border: 1px solid #ECECEC;
+    
+}
+.ItemMarcaProductosDestacadosNombre a{
+    font-size: 16px;
+    text-decoration: underline;
+}

@@ -18,7 +18,7 @@ class Default_BuscarController extends CST_Controller_ActionDefault {
         /* Initialize action controller here */
         $filter = new CST_Filter_SeoUrl();
         
-        $this->view->breadcrumbs = 'Buscar &raquo '.$filter->filter($this->_getParam('slugBusqueda', ''), '-', 0);
+        $this->view->breadcrumbs = 'Buscar &raquo '.$this->_getParam('slugBusqueda', '');
     }
 
     public function indexAction() {

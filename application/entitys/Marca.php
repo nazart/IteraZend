@@ -16,6 +16,10 @@ class Application_Entity_Marca {
         $modelMarca = new Application_Model_Marca();
         return $modelMarca->listarMarcasSociadasProducto($limit);
     }
+    static function listarMarcasAsociadasProductoDestacados($limit =''){
+        $modelMarca = new Application_Model_Marca();
+        return $modelMarca->listarMarcasSociadasProductoDestacados($limit);
+    }
 }
 
 ?>

@@ -11,7 +11,8 @@ class Default_MarcasController extends CST_Controller_ActionDefault
 
     public function indexAction()
     {
-        $this->view->listaMarcas = Application_Entity_Marca::listarMarcaSociadasProducto();
+        $this->view->headLink()->appendStylesheet(CST_Server_ServerStatic::getUrl().'/css/marcas.css');
+        $this->view->listaMarcas = Application_Entity_Marca::listarMarcasAsociadasProductoDestacados();
     }
 
 
