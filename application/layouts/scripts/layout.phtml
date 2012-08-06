@@ -11,6 +11,8 @@
         <script type="text/javascript" src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/scripts/lib/slideshow/mootools-1.3.2-core.js"></script>
         <script type="text/javascript" src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/scripts/lib/slideshow/mootools-1.3.2.1-more.js"></script>
         <script type="text/javascript" src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/scripts/lib/slideshow/slideshow.js"></script>
+        <script type="text/javascript" src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/scripts/lib/jquery/jquery-v1.7.2.js"></script>
+        <script type="text/javascript" src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/scripts/menu.js"></script>
         <script type="text/javascript" src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/scripts/common.js"></script>			
         <?php echo $this->headScript() ?>        
         <link rel="stylesheet" type="text/css" href="<?php echo CST_Server_ServerStatic::getUrl(); ?>/css/global.css" />
@@ -53,17 +55,63 @@
             <![endif]-->
             <div id="wrapper">
                 <div id="body_wrapper">
-                    <?php echo $this->layout()->content ?>
+
+
+                    <?php
+                    $indexBool = ($this->nameController == 'index' && $this->nameAction == 'index');
+                    if ($indexBool) {
+                        ?>
+                        <div id="page_banner">			
+                            <?php foreach ($this->listaBanner as $index): ?>
+                                <a href="<?php echo $index['UrlBanner']; ?>">
+                                    <img src="<?php echo CST_Server_ServerDinamic::getUrl(); ?>/img/banner/<?php echo $index['ImagenBanner']; ?>" alt="" border="0" />
+                                </a>
+                            <?php endforeach; ?>
+                        </div>
+                        <div id="ticker">
+                            <p style="visibility:visible;opacity:1;">
+                                <a href="/nosotros">
+                                    <span style="color:#006B6E; font-weight:bold;">&iquest;Desea saber m&aacute;s acerca de Itera ? <strong>Haga clic aqu&iacute;</strong>
+                                    </span>
+                                </a>
+                            </p>
+                        </div>
+
+                    <?php
+                    } 
+                    ?>
+                    <?php if(!$indexBool){
+                                    
+                                    echo '<div class="breadcrumb">Estas en: '.$this->navigation()
+                                ->breadcrumbs()
+                                ->setMinDepth(0)
+                                ->setLinkLast(true)
+                                ->setSeparator(" &raquo; ". PHP_EOL).'</div><hr></hr><p>';
+                                } ?>
+                    <div id="content_wrapper">
+                        
+                        <div id="content_homepage" style="padding-top:10px; padding-bottom:15px;">
+                            <div id="content">
+                                
+                                
+                                
+<?php echo $this->layout()->content ?>
+                            </div>
+                        </div>
+                    </div>
+
+
+
                     <div id="quicklinks_cell">
                         <div id="quicklinks"  >
-                        <a href="/productos">Nuestros Productos</a>
-                        |
-                        <a href="/marcas">Nuestras Marcas</a>
-                        |
-                        <a href="/soluciones">Nuestras Soluciones</a>
-                        |
-                        <a href="/contactenos">Contactenos</a>
-                    </div>
+                            <a href="/productos">Nuestros Productos</a>
+                            |
+                            <a href="/marcas">Nuestras Marcas</a>
+                            |
+                            <a href="/soluciones">Nuestras Soluciones</a>
+                            |
+                            <a href="/contactenos">Contactenos</a>
+                        </div>
                         <div class="contenedor-redes-sociales">
                             <div class="redes-sociales-iconos">
                                 <div class="redes-sociales-iconos-left"><img src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/images/redes-sociales/left.jpg" width="12" height="59" /></div>
@@ -72,32 +120,32 @@
                                     <div style="float:left; padding-top:13px;">
                                         <iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FESETLA&amp;send=false&amp;layout=button_count&amp;width=130&amp;show_faces=true&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21&amp;appId=167226613352031" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:130px; height:21px;" allowTransparency="true"></iframe>
                                     </div>
-                                    <div class="fl-redes"><a href="http://www.facebook.com/ESETLA"><img src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/images/redes-sociales/facebook.jpg" alt="Facebook" width="40" height="40" border="0" /></a></div>
+                                    <div class="fl-redes"><a title="Siguenos en Facebook" href="https://www.facebook.com/IteraSAC"><img src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/images/redes-sociales/facebook.jpg" alt="Facebook" width="40" height="40" border="0" /></a></div>
                                     <div class="fl-redes"><a href="http://twitter.com/#!/ESETLA"><img src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/images/redes-sociales/twitter.jpg" alt="Twitter" width="40" height="40" border="0" /></a></div>
                                     <div class="clear"></div>
                                 </div>
                                 <div class="redes-sociales-iconos-right"><img src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/images/redes-sociales/right.jpg" width="12" height="59" /></div>
                             </div>
                         </div>
-<!--                        <div id="quicklinks">
-                            <a href="/comprar" title="">Comprar</a> | <a href="http://blogs.eset-la.com/" target="_blank" title="">Blogs de ESET</a> | <a href="/registracion-producto" title="">Activar Software</a> | <a href="/download/trial-gratuito" title="">Evaluación Gratuita</a> | <a href="/online-scanner" title="">Online Scanner</a> | <a href="/hogar/compare-eset" title="">ESET vs. Competencia</a> | <a href="/pe/centro-prensa" title="">Centro de Prensa</a> | <a href="/centro-amenazas" title="">Centro de Amenazas</a> | <a href="/soporte/contacto" title="">Soporte</a>
-                        </div>
-                        <div id="product_selector">
-                            <div style="float:left; margin-right:6px"><strong>Todos nuestros Productos:</strong></div>
-                            <select id="quicklink_products">
-                                <option selected="selected">Seleccionar un Producto</option>
-                                <option>prueva</option>
-                                <option>ESET NOD32 Antivirus</option>
-                                <option>ESET Cybersecurity para Mac</option>
-                                <option>ESET Mobile Security</option>
-                                <option>ESET Endpoint Security</option>
-                                <option>ESET Endpoint Antivirus</option>
-                                <option>ESET Remote Administrator</option>
-                                <option>ESET Server Security</option>
-                                <option>ESET Online Scanner</option>
-                                <option>ESET SysInspector</option>
-                            </select>
-                        </div>-->
+                        <!--                        <div id="quicklinks">
+                                                    <a href="/comprar" title="">Comprar</a> | <a href="http://blogs.eset-la.com/" target="_blank" title="">Blogs de ESET</a> | <a href="/registracion-producto" title="">Activar Software</a> | <a href="/download/trial-gratuito" title="">Evaluación Gratuita</a> | <a href="/online-scanner" title="">Online Scanner</a> | <a href="/hogar/compare-eset" title="">ESET vs. Competencia</a> | <a href="/pe/centro-prensa" title="">Centro de Prensa</a> | <a href="/centro-amenazas" title="">Centro de Amenazas</a> | <a href="/soporte/contacto" title="">Soporte</a>
+                                                </div>
+                                                <div id="product_selector">
+                                                    <div style="float:left; margin-right:6px"><strong>Todos nuestros Productos:</strong></div>
+                                                    <select id="quicklink_products">
+                                                        <option selected="selected">Seleccionar un Producto</option>
+                                                        <option>prueva</option>
+                                                        <option>ESET NOD32 Antivirus</option>
+                                                        <option>ESET Cybersecurity para Mac</option>
+                                                        <option>ESET Mobile Security</option>
+                                                        <option>ESET Endpoint Security</option>
+                                                        <option>ESET Endpoint Antivirus</option>
+                                                        <option>ESET Remote Administrator</option>
+                                                        <option>ESET Server Security</option>
+                                                        <option>ESET Online Scanner</option>
+                                                        <option>ESET SysInspector</option>
+                                                    </select>
+                                                </div>-->
                     </div>
                     <script type="text/javascript">
                         var quicklink_products = {"ESET Smart Security":"\/hogar\/smart-security","ESET NOD32 Antivirus":"\/hogar\/nod32-antivirus","ESET Cybersecurity para Mac":"\/hogar\/cybersecurity-mac","ESET Mobile Security":"\/hogar\/mobile-security-antivirus","ESET Endpoint Security":"\/empresas\/medianas\/eset-endpoint-security","ESET Endpoint Antivirus":"\/empresas\/medianas\/eset-endpoint-antivirus","ESET Remote Administrator":"\/empresas\/remote-administrator","ESET Server Security":"\/empresas\/server-security","ESET Online Scanner":"\/online-scanner","ESET SysInspector":"\/download\/sysinspector"};
@@ -111,10 +159,12 @@
                 <div id="footer" style="padding-top:13px; padding-bottom:13px; height:50px;">
                     <div class="fl" style="padding-top:30px; width: 980px; text-align: center;">
                         Av. Los Conquistadores 346 - San Isidro | Telf: (051) 421-1644 | Fax: (051) 421-1644 | e-mail: eortega@itera.com.pe
-                        <p>
-                            Copyright &copy; <?php echo date('Y'); ?> ITERA S.A.C.</div>
+                        <br>Copyright &copy; <?php echo date('Y'); ?> ITERA S.A.C. </br>
 
-                </div></div>
+                    </div>
+
+                </div>
+            </div>
         </div>
 
     </body>

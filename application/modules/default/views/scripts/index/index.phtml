@@ -1,53 +1,34 @@
-<div id="page_banner">			
-    <?php foreach($this->listaBanner as $index):?>
-    <a href="<?php echo $index['UrlBanner']; ?>">
-        <img src="<?php echo CST_Server_ServerDinamic::getUrl(); ?>/img/banner/<?php echo $index['ImagenBanner']; ?>" alt="" border="0" />
-    </a>
-    <?php endforeach;?>
-</div>
-<div id="ticker">
-    <p style="visibility:visible;opacity:1;">
-        <a href="/nosotros">
-            <span style="color:#006B6E; font-weight:bold;">&iquest;Desea saber m&aacute;s acerca de Itera ? <strong>Haga clic aqu&iacute;</strong>
-            </span>
-        </a>
-    </p>
-</div>
-
-<div id="content_wrapper">
-    <div id="content_homepage" style="padding-top:10px; padding-bottom:15px;">
-        <div id="home_slides_window">
-            <div id="home_slides">
-                <?php foreach($this->listaAreas as $index): ?>
-                <div class="home_slide">
-                    <h2><?php echo $index['NombreArea']; ?></h2>
-                    <a href="/servicio/<?php echo $index['SlugArea']; ?>" onclick="_hbLink('Slide Image ESS');">
-                        <img src="<?php echo CST_Server_ServerDinamic::getUrl(); ?>/img/area/<?php echo $index['ImagenArea']?>" alt="ESET Smart Security. Antivirus, Antispyware, Firewall y Antispam en un único producto." /></a>
-                    <div class="home_slide_desc">
-<!--                        <strong>ESET Smart Security 5 </strong> incorpora un firewall y antispam al reconocido ESET NOD32 Antivirus protegiendo su equipo e informaci&oacute;n de los ataques de Internet y de los molestos correos basura, adem&aacute;s ahora puede proteger a sus hijos del contenido inapropiado circulando en la web utilizando el control parental -->
-                        <?php echo $index['DescripcionCortaArea']; ?>
-                        <br/>
-                        <a href="/servicio/<?php echo $index['SlugArea']; ?>" onclick="_hbLink('Learn More ESS');">Conozca más</a> <img src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/images/double_arrow_right.gif" alt="Conozca más" />
-                    </div>
-<!--                    <p><a href="/comprar/" onclick="_hbLink('Buy ESS Button');"><img src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/images/boton-comprar-eset.png" alt="Adquiera ESET Smart Security y ESET NOD32 Antivirus." style="margin-right:10px" /></a>
-                        <a href="/download/trial-gratuito/smart-security" onclick="_hbLink('Trial ESS Button');"><img src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/images/boton-trial-gratuito-eset.gif" alt="Descargue gratis ESET Smart Security y ESET NOD32 Antivirus por 30 días." /></a></p>-->
+        
+<div id="home_slides_window">
+    <div id="home_slides">
+        <?php foreach ($this->listaAreas as $index): ?>
+            <div class="home_slide">
+                <h2><?php echo $index['NombreArea']; ?></h2>
+                <a href="/servicio/<?php echo $index['SlugArea']; ?>" onclick="_hbLink('Slide Image ESS');">
+                    <img src="<?php echo CST_Server_ServerDinamic::getUrl(); ?>/img/area/<?php echo $index['ImagenArea'] ?>" alt="ESET Smart Security. Antivirus, Antispyware, Firewall y Antispam en un único producto." /></a>
+                <div class="home_slide_desc">
+    <!--                        <strong>ESET Smart Security 5 </strong> incorpora un firewall y antispam al reconocido ESET NOD32 Antivirus protegiendo su equipo e informaci&oacute;n de los ataques de Internet y de los molestos correos basura, adem&aacute;s ahora puede proteger a sus hijos del contenido inapropiado circulando en la web utilizando el control parental -->
+                    <?php echo $index['DescripcionCortaArea']; ?>
+                    <br/>
+                    <a href="/servicio/<?php echo $index['SlugArea']; ?>" onclick="_hbLink('Learn More ESS');">Conozca más</a> <img src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/images/double_arrow_right.gif" alt="Conozca más" />
                 </div>
-                <?php endforeach; ?>
-                <div class="home_slide">
-                    <h2>Nuestras Marcas</h2>
-                    <div class="narrow_column_content" style="padding:0px;">
-                        <div class="sidebox-outer-180">
-                            <div class="sidebox-180">
-                                <div class="sidebox-list"> 
-                                    <?php foreach($this->listaMarcas as $index):?>
-                                    <a href="/productos?marca=<?php echo $index['SlugMarca']; ?>" style="padding:5px 0 5px 15px;">
-                                        <img src="/images/icons/icono_acceso_comprar.png" width="16" height="16" align="absmiddle" /> 
-                                        <?php echo $index['NombreMarca']; ?>
-                                        (<?php echo $index['countProductos']; ?>)
-                                    </a> 
-                                    <?php endforeach; ?>
-                                </div>
-                            </div>
+    <!--                    <p><a href="/comprar/" onclick="_hbLink('Buy ESS Button');"><img src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/images/boton-comprar-eset.png" alt="Adquiera ESET Smart Security y ESET NOD32 Antivirus." style="margin-right:10px" /></a>
+                    <a href="/download/trial-gratuito/smart-security" onclick="_hbLink('Trial ESS Button');"><img src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/images/boton-trial-gratuito-eset.gif" alt="Descargue gratis ESET Smart Security y ESET NOD32 Antivirus por 30 días." /></a></p>-->
+            </div>
+        <?php endforeach; ?>
+        <div class="home_slide">
+            <h2>Nuestras Marcas</h2>
+            <div class="narrow_column_content" style="padding:0px;">
+                <div class="sidebox-outer-180">
+                    <div class="sidebox-180">
+                        <div class="sidebox-list"> 
+                            <?php foreach ($this->listaMarcas as $index): ?>
+                                <a href="/productos?marca=<?php echo $index['SlugMarca']; ?>" style="padding:5px 0 5px 15px;">
+                                    <img src="/images/icons/icono_acceso_comprar.png" width="16" height="16" align="absmiddle" /> 
+                                    <?php echo $index['NombreMarca']; ?>
+                                    (<?php echo $index['countProductos']; ?>)
+                                </a> 
+                            <?php endforeach; ?>
                         </div>
                     </div>
                 </div>
@@ -56,4 +37,3 @@
     </div>
 </div>
 
-  

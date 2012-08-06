@@ -18,5 +18,7 @@ class CST_Controller_Action extends Zend_Controller_Action {
     {
         parent::init();
         $this->_session = new Zend_Session_Namespace('kmComputer');
+        $this->view->nameController = $this->getRequest()->getControllerName();
+        $this->view->nameAction = $this->getRequest()->getActionName();
     }
 }
