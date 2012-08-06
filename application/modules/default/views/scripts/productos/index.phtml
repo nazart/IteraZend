@@ -1,4 +1,4 @@
-<div class="producos_colum_izq" >
+<div class="productos_colum_izq" >
     <?php
     $pagerData = array(
         'getPathInfo' => $this->getPathInfo,
@@ -7,7 +7,7 @@
     echo $this->partial('/partial/menucategorias.phtml', $pagerData)
     ?>
 </div>
-<div class="producos_colum_derc" >
+<div class="productos_colum_derc" >
     <div class="block_content">
         <?php
         echo $paginator = $this->paginationControl($this->productos, 'Sliding', '/paginator/Product.phtml');

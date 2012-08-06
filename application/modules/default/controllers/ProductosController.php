@@ -41,7 +41,7 @@ class Default_ProductosController extends CST_Controller_ActionDefault {
        
         $paginator = Zend_Paginator::factory($result);
         $paginator->setCurrentPageNumber($this->_getParam('page'));
-        $paginator->setItemCountPerPage(2);
+        $paginator->setItemCountPerPage(12);
         return $paginator;
     }
 

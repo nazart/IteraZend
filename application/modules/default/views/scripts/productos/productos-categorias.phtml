@@ -1,5 +1,4 @@
-<div class="grid_5" >
-    Columna Izquierda
+<div class="productos_colum_izq" >
     <?php
     $pagerData = array(
         'getPathInfo' => $this->getPathInfo,
@@ -8,18 +7,13 @@
     echo $this->partial('/partial/menucategorias.phtml', $pagerData)
     ?>
 </div>
-<div class="grid_19" >
-    Columna Derecha
+<div class="productos_colum_derc" >
     <div class="block_content">
         <?php
-        $params = array('slugCategoria' => $this->slugCategoria);
-        echo $paginator = $this->paginationControl($this->productos, 'Sliding', '/paginator/ProductForCategorias.phtml', $params);
-        $params = array('productos'=>$this->productos,'paginator'=>$paginator);
+        echo $paginator = $this->paginationControl($this->productos, 'Sliding', '/paginator/Product.phtml');
+        $params = array('productos' => $this->productos, 'paginator' => $paginator);
         echo $this->partial('/partial/listaProductosPaginator.phtml', $params)
         ?>
-        
-        
-               
     </div>               
 </div>
 

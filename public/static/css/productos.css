@@ -11,7 +11,7 @@
    Syntax recommendation http://www.w3.org/TR/REC-CSS2/
 */
 
-.producos_colum_izq { 
+.productos_colum_izq { 
     width: 200px;
     float: left;
     margin-right: 20px;
@@ -19,10 +19,34 @@
     margin-left: -30px;
 }
 
-.producos_colum_derc { 
-    width: 500px;
+.productos_colum_derc { 
+    width: 650px;
     float: left; 
 }
+.producto_item {
+float: left;
+width: 170px;
+height: 180px;
+padding: 8px;
+background-color: white;
+border: 1px solid #ECECEC;
+margin: 0 18px 24px 0;
+position: relative;
+    
+}
+.producto_item img {
+    display: block;
+height: 135px;
+width: 100%;  
+}
+.title_producto{
+    text-align: left;
+    font-size: 13px;
+    
+        
+}
+
+
 /*menu*/
 #treeMenu {  right:auto; left:15px; top:23px; width:200px;  font:normal 14px 'Segoe UI', Helvetica, Arial, sans-serif; }
 #treeMenu h2 { font:bold 20px 'Segoe UI', Helvetica, Arial, sans-serif; color:#454545; margin-bottom:12px;}
