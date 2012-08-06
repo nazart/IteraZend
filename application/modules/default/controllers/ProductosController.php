@@ -15,7 +15,6 @@ class Default_ProductosController extends CST_Controller_ActionDefault {
     public function init() {
         parent::init();
         $this->view->headLink()->appendStylesheet(CST_Server_ServerStatic::getUrl().'/css/productos.css');
-        /* Initialize action controller here */
         $this->view->params = $this->getRequest()->getParams();
         $this->view->listaMarcas = Application_Entity_Marca::listarMarcaSociadasProducto(5);
     }
