@@ -14,8 +14,12 @@ class CST_NavigatonCustom  {
     static function gethtmlPages($page,$nivel=1) {
         $html = '';
         $count=$nivel;
-        $classNivel = 'nivelMenu'.$nivel;
-        $html .= "<ul class='".$classNivel."' >\n";
+        $classNivel = 'menuNivel'.$nivel;
+        $style='';
+        if($nivel>1){
+            $style =' Style ="display:none;" ';
+        }
+        $html .= "<ul class='".$classNivel."' $style>\n";
         foreach ($page as $subpage) {
             if($subpage->_class==''){
             $html .= "<li>\n";

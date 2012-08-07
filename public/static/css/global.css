@@ -249,7 +249,7 @@ form#supportContact fieldset dl textarea {
 }
 
 #main_navigation li ul li{
-    display: none;
+    
 }
 
 .first_main_nav_item a:hover,
@@ -284,6 +284,27 @@ form#supportContact fieldset dl textarea {
     font-size:1px;
     line-height:1px;
     text-indent:-400px;
+}
+
+.menuNivel2 ul {
+    position: absolute;
+}
+.menuNivel2 .MenuSectionArea {
+margin: 0;
+padding: 0;
+float: none;
+position: relative;
+list-style: none;
+display: block;
+padding-left: 10px;
+width: 50px;
+padding-top: 20px;
+}
+.menuNivel2 .MenuSectionArea a{
+border-bottom: 1px solid #E5CD8E;
+line-height: 30px;
+overflow: hidden;
+height: 30px;
 }
 
 /* SEARCH HINT Styles------------------------------*/

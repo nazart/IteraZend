@@ -7,11 +7,10 @@ $(document).ready(function (){
 		 
     });
     
-    $('#main_navigation .nivelMenu1 > li').hover (
+    $('#main_navigation ul > li').hover (
     
         function () {
             //show its submenu
-            
             $('ul:first', this).slideDown(100);
         }, 
         function () {
