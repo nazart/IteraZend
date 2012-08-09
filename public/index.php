@@ -22,5 +22,10 @@ $application = new Zend_Application(
     APPLICATION_ENV,
     APPLICATION_PATH . '/configs/application.ini'
 );
+$var=new ReflectionClass($application);
+        $getMethods=$var->getMethods();
+        print_r($getMethods);
+        
+
 $application->bootstrap()
             ->run();

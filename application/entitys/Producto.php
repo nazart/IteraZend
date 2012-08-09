@@ -15,6 +15,8 @@ class Application_Entity_Producto {
     //put your code here
 
 
+    
+    
 
     static function listarArbolCategoriasProductos() {
         $modelProducto = new Application_Model_Producto();
@@ -22,7 +24,7 @@ class Application_Entity_Producto {
         return self::listarAreasArbol($arbol);
     }
     static function listarTodosLosProductos($slugMarca=''){
-        
+                
         $modelProducto = new Application_Model_Producto();
         return $modelProducto->listarTodosProductos($slugMarca);
     }

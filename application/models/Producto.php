@@ -134,6 +134,7 @@ class Application_Model_Producto {
     }
 
     function buscarProductos($arraySlug='') {
+        
         $result = $this->_modelProducto->getAdapter()
                 ->select()
                 ->distinct()
@@ -150,10 +151,10 @@ class Application_Model_Producto {
                 ->join(array('dts' => $this->_modelDetalleSlug->getName()), 'pr.IdProducto = dts.IdProducto', '')
                 ->join(array('sl' => $this->_modelSlug->getName()), 'sl.IdSlug = dts.IdSlug', '');
         if ($arraySlug != '') {
-            $result->where('sl.NombreSlug REGEXP ?', array($arraySlug));
+            $result->where('sl.NombreSlug REGEXP ?', array($arraySlug))->order('dts.Prioridad');
         }
-
-        return $result;
+        echo $result;
+return $result;
     }
 
 }
