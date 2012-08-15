@@ -29,7 +29,13 @@ if (!empty($this->flashMessenger)) {
 </div>
 
 <div class="contenListaCotizacion">
+    
 <?php if(!empty($this->productoCotizar)) {?>
+    <div style="float: right"><a  href ="<?php echo CST_Server_ServerBaseUrl::getUrl(); ?>/productos"> Ver mas Productos</a></div>
+    <div class="clear"></div>
+    <p>
+    <hr></hr>
+    <p>
 <?php foreach($this->productoCotizar as $index): ?>
 <div class="listaCotizacion">
 <h2><?php echo $index['_nombreProducto']?></h2>
@@ -42,7 +48,7 @@ if (!empty($this->flashMessenger)) {
 <div class="clear"></div>
 <div style="float: right">
     <a href="<?php echo CST_Server_ServerBaseUrl::getUrl(); ?>/cotizar/delete/<?php echo $index['_slugProducto']; ?>">Eliminar <span style="color: #069; font-weight: bold">X</span></a> | 
-<a href="<?php echo CST_Server_ServerBaseUrl::getUrl(); ?>/productos/detalle-producto/<?php echo $index['_slugProducto']; ?>" >Ver mas <img src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/images/double_arrow_right.gif" alt="Conozca más" /></a>
+<a href="<?php echo CST_Server_ServerBaseUrl::getUrl(); ?>/productos/detalle-producto/<?php echo $index['_slugProducto']; ?>" >Detalle <img src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/images/double_arrow_right.gif" alt="Conozca más" /></a>
 </div>
 </div>
 <div class="clear"></div>

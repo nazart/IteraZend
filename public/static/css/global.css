@@ -2654,3 +2654,22 @@ ESTILOS PROPIOS DEL POPUP 20090323@JCP
     color: #ffffff;
     font-size: 19px;
 }
+
+.viewCotizacion{
+border-radius: 5px 5px 5px 5px;
+background-color: #424242;
+list-style: none;
+padding: 5px 5px 6px 5px;
+margin-bottom: 2px;
+margin-left: 825px;
+z-index: 9999;
+text-align: left;
+opacity: 0.9;
+width: 140px;
+color: #ffffff;
+
+}
+.viewCotizacion a{
+color: #ffffff;
+font-weight: bold;
+}

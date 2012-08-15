@@ -30,9 +30,17 @@
                 <div id="header_cell">
                     <div id="header_logo">
                         <a href="<?php echo CST_Server_ServerBaseUrl::getUrl()?>/" title="Itera">
-                            <img src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/images/itera_logo.png" alt="ESET - Compañía global de soluciones de software de seguridad" /></a></div>
+                            <img src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/images/itera_logo.png" alt="Itera - Compañía global de soluciones de software de seguridad" />
+                        </a>
+                    </div>
+                    
+                    
                 </div>
-
+                <div class="viewCotizacion">
+                    <a href="<?php echo CST_Server_ServerBaseUrl::getUrl(); ?>/cotizar">
+                    <?php echo $this->cantProductosCotizar; ?> Productos por cotizar
+                    </a>
+                </div>
                 <div id="navigation_cell">
 
                     <?php

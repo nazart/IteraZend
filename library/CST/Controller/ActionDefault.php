@@ -19,6 +19,7 @@ class CST_Controller_ActionDefault extends CST_Controller_Action {
     public function init() {
         parent::init();
         $this->_sessiondefault = new Zend_Session_Namespace('default');
+        $this->view->cantProductosCotizar = count($this->_sessiondefault->cotizacion);
         $listaCategorias = Application_Entity_Producto::listarArbolCategoriasProductos();
         $listaSoluciones = Application_Entity_Soluciones::listarArbolCategoriasSoluciones();
         $configNavigationArray = array(
