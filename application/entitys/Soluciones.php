@@ -63,7 +63,7 @@ class Application_Entity_Soluciones extends CST_Entity{
         foreach ($arbol as $index) {
             if ($nombreArbol != $index['NombreCategoriaSoluciones']) {
                 $arbolReturn[$index['SlugCategoriaSolucion']]['label'] = $index['NombreCategoriaSoluciones'];
-                $arbolReturn[$index['SlugCategoriaSolucion']]['uri'] = '/soluciones/'.$index['SlugCategoriaSolucion'];
+                $arbolReturn[$index['SlugCategoriaSolucion']]['uri'] = CST_Server_ServerBaseUrl::getUrl().'/soluciones/'.$index['SlugCategoriaSolucion'];
                 $arbolReturn[$index['SlugCategoriaSolucion']]['pages'] = self::listarSolucionesArbol($index['IdCategoriaSoluciones'],$arbol);
                 $nombreArbol = $index['NombreCategoriaSoluciones'];
                 $count++;
@@ -79,7 +79,7 @@ class Application_Entity_Soluciones extends CST_Entity{
         foreach($arbol as $index){
             if($index['solucionCategoria']==$idCategoria){
                 $arbolReturn[$index['SlugSoluciones']]['label']= $index['NombreSoluciones'];
-                $arbolReturn[$index['SlugSoluciones']]['uri']= '/soluciones/'.$index['SlugCategoriaSolucion'].'/'.$index['SlugSoluciones'];
+                $arbolReturn[$index['SlugSoluciones']]['uri']= CST_Server_ServerBaseUrl::getUrl().'/soluciones/'.$index['SlugCategoriaSolucion'].'/'.$index['SlugSoluciones'];
             }
         }
         return $arbolReturn;        

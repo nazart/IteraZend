@@ -112,7 +112,7 @@ class Application_Entity_Producto extends CST_Entity{
         foreach ($arbol as $index) {
             if ($nombreArbol != $index['NombreArea']) {
                 $arbolReturn[$index['SlugArea']]['label'] = $index['NombreArea'];
-                $arbolReturn[$index['SlugArea']]['uri'] = '/productos/'.$index['SlugArea'];
+                $arbolReturn[$index['SlugArea']]['uri'] = CST_Server_ServerBaseUrl::getUrl().'/productos/'.$index['SlugArea'];
                 $arbolReturn[$index['SlugArea']]['pages'] = self::listarCategoriasAreaArbol($index['IdArea'],$arbol);
                 $arbolReturn[$index['SlugArea']]['class'] = 'MenuSectionArea';
                 $nombreArbol = $index['NombreArea'];
@@ -128,7 +128,7 @@ class Application_Entity_Producto extends CST_Entity{
         foreach($arbol as $index){
             if($idAreaCategoria!=$index['IdAreaCategoria'] && $index['IdAreaCategoria']==$area){
                 $arbolReturn[$index['SlugCategoriaProducto']]['label']= $index['NombreCategoriaProducto'];
-                $arbolReturn[$index['SlugCategoriaProducto']]['uri']= '/productos/'.$index['SlugArea'].'/'.$index['SlugCategoriaProducto'];
+                $arbolReturn[$index['SlugCategoriaProducto']]['uri']= CST_Server_ServerBaseUrl::getUrl().'/productos/'.$index['SlugArea'].'/'.$index['SlugCategoriaProducto'];
                 $arbolReturn[$index['SlugCategoriaProducto']]['pages']= self::listarSubcategoriaCategoriaArbol($index['IdCategoriaProducto'], $arbol);
             }
         }
@@ -142,7 +142,7 @@ class Application_Entity_Producto extends CST_Entity{
         foreach($arbol as $index){
             if($idCategoriaSubcategoria != $index['IdCategoriaSubcategoria'] && $index['IdCategoriaSubcategoria']==$idCategoria){
                 $arbolReturn[$index['SlugSubCategoriaProducto']]['label']= $index['NombreSubCategoriaProducto'];
-                $arbolReturn[$index['SlugSubCategoriaProducto']]['uri']= '/productos/'.$index['SlugArea'].'/'.$index['SlugCategoriaProducto'].'/'.$index['SlugSubCategoriaProducto'];
+                $arbolReturn[$index['SlugSubCategoriaProducto']]['uri']= CST_Server_ServerBaseUrl::getUrl().'/productos/'.$index['SlugArea'].'/'.$index['SlugCategoriaProducto'].'/'.$index['SlugSubCategoriaProducto'];
             }
         }
         return $arbolReturn;
