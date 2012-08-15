@@ -2641,3 +2641,16 @@ ESTILOS PROPIOS DEL POPUP 20090323@JCP
 .floatFleft {
     float: left;
 }
+
+.buttonRed {
+    background:url(../images/buttonred.gif) no-repeat;
+    height: 46px;
+    width: 157px;
+    padding-left: 5px;
+    padding-top: 5px;
+    margin-top: 5px;
+}
+.buttonRed a {
+    color: #ffffff;
+    font-size: 19px;
+}

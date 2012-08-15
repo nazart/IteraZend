@@ -1,0 +1,145 @@
+/* 
+    Document   : marca
+    Created on : 06-ago-2012, 3:32:43
+    Author     : Laptop
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+.ItemCotizacion{
+    float: left;
+    width: 257px;
+    height: 315px;
+    padding: 8px;
+    background-color: white;
+    border: 1px solid #ECECEC;
+    margin: 0 18px 24px 0;
+    position: relative;
+}
+.ItemCotizacionImagen {
+    height: 70px;
+    width: 70px;  
+    padding-top: 10px;
+    padding-left: 10px;
+    border: 1px solid #ECECEC;
+    float: left;
+}
+.ItemCotizacionImagen img{
+    height: 50px;
+    width: 50px;  
+    border: 1px solid #ECECEC;
+}
+.ItemCotizacionNombre{
+    float: right;
+    width: 170px;
+    text-align: right;
+    font-size: large;
+}
+.ItemCotizacionLinkAll{
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 40px;
+    padding-left: 45px;
+}
+.ItemCotizacionLinkAllLeft{
+    background:url(../images/bg-button-blue-med-left.png);
+    width: 9px;
+    height: 28px;
+    float: left;
+}
+.ItemCotizacionLinkAllRight{
+    background:url(../images/bg-button-blue-med-right.png);
+    width: 9px;
+    height: 28px;
+    float: left;
+}
+.ItemCotizacionLinkAllCenter{
+    background:url(../images/bg-button-blue-med-center.png) repeat-x;
+    width: 160px;
+    height: 28px;
+    float: left;
+    padding-top: 5px;
+}
+.ItemCotizacionLinkAllCenter a{
+    font-size: 13px;
+    color: #FFF;
+    font-weight: bold;
+}
+.ItemCotizacionProductosDestacadosImagen{
+    width: 100px;
+    height: 60px;
+    
+    float: left;
+    margin-bottom: 10px;
+    padding-right: 10px;
+    
+    
+}
+.ItemCotizacionProductosDestacadosImagen img{
+    width: 95px;
+    height: 55px;
+    border: 1px solid #ECECEC;
+    
+}
+.ItemCotizacionProductosDestacadosNombre a{
+    font-size: 16px;
+    text-decoration: underline;
+}
+.listaCotizacion #imgCotizacion{
+    width: 50px;
+    height: 50px;
+    margin-right: 30px;
+    margin-top: 10px;
+    float: left;
+}
+.listaCotizacion #descripcionCotizacion{
+    float: left;
+    width: auto;
+}
+
+/* formualrio de cotizacion*/
+.formCotizacion{
+    width: 390px;
+    float: left;
+}
+.contenListaCotizacion{
+    width: 480px;
+    float: left;
+}
+.zend_form {
+    width: 300px;
+}
+.zend_form dt{
+    float: left;
+    width: 80px;
+    padding-bottom: 10px;
+    text-align: right;
+}
+.zend_form dd{
+    width: 140px;
+    float: left;
+    padding-bottom: 10px;
+    padding-left: 15px;
+}
+
+.zend_form .errors{
+    color: #d22800;
+}
+
+.submit-button{
+    border: solid 1px #000;
+    width: 60px;
+    height: 24px;
+    background: #069;
+    color: #FFF;
+    font-weight: bold;
+    cursor: pointer;
+}
+.submit-button:hover{
+    background: #59B;
+}

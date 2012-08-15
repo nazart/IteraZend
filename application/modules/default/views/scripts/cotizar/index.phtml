@@ -1,0 +1,60 @@
+
+<h1>Envianos tu Cotizacion</h1>
+<hr> </hr>
+
+<?php
+if (!empty($this->flashMessenger)) {
+    ?>
+<p>
+    
+</p>
+    <div class="warning_message">
+        <ul>
+            <?php
+            foreach ($this->flashMessenger as $index):
+                ?>
+                <li><?php echo $index; ?> </li>
+                <?php
+            endforeach;
+            ?>
+        </ul>
+    </div>
+    <?php
+}
+?>
+<br></br>
+<div class="clear"></div>
+<div class="formCotizacion">
+<?php echo $this->formulario; ?>    
+</div>
+
+<div class="contenListaCotizacion">
+<?php if(!empty($this->productoCotizar)) {?>
+<?php foreach($this->productoCotizar as $index): ?>
+<div class="listaCotizacion">
+<h2><?php echo $index['_nombreProducto']?></h2>
+<div id="imgCotizacion">
+    <img width="50" height="50" src="<?php echo CST_Server_ServerDinamic::getUrl();?>/img/imagen-producto/<?php echo $index['_imagenProducto']; ?>" />
+</div>
+<p id="descripcionCotizacion">
+    <?php echo $index['_descricionCortaProducto']?>
+</p>
+<div class="clear"></div>
+<div style="float: right">
+    <a href="<?php echo CST_Server_ServerBaseUrl::getUrl(); ?>/cotizar/delete/<?php echo $index['_slugProducto']; ?>">Eliminar <span style="color: #069; font-weight: bold">X</span></a> | 
+<a href="<?php echo CST_Server_ServerBaseUrl::getUrl(); ?>/productos/detalle-producto/<?php echo $index['_slugProducto']; ?>" >Ver mas <img src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/images/double_arrow_right.gif" alt="Conozca más" /></a>
+</div>
+</div>
+<div class="clear"></div>
+<hr/>
+<br/>
+<?php endforeach; ?>
+<?php } else {?>
+<div class="warning_message">
+    <p>
+    No tiene ningun productos agregado si quiere agregar productos para su cotizacion haz click <a  href ="<?php echo CST_Server_ServerBaseUrl::getUrl(); ?>/productos"> aqui</a>
+    </p>
+</div>
+
+<?php } ?>
+</div>

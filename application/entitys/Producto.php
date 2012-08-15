@@ -22,6 +22,7 @@ class Application_Entity_Producto extends CST_Entity{
     public $_precioProducto;              
     public $_descricionCortaProducto;              
     public $_descricionProducto;              
+    public $_imagenProducto;              
     public $_slugProducto;              
     public $_idMarca;
     
@@ -43,6 +44,7 @@ class Application_Entity_Producto extends CST_Entity{
         $this->_precioProducto = $datos['PrecioProducto'];
         $this->_descricionCortaProducto = $datos['DescricionCortaProducto'];
         $this->_descricionProducto = $datos['DescricionProducto'];
+        $this->_imagenProducto = $datos['ImagenProducto'];
         $this->_slugProducto = $datos['SlugProducto'];
         $this->_idMarca = $datos['IdMarca'];
     }

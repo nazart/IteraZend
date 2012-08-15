@@ -1,11 +1,19 @@
-SELECT DISTINCT ttemp.IdProducto,ttemp.NombreProducto FROM (SELECT DISTINCT 
+SELECT DISTINCT 
+ttemp.IdProducto,
+ttemp.NombreProducto,
+ttemp.IdArea,
+`ttemp`.`IdCategoriaProducto`, 
+`ttemp`.`IdSubCategoriaProducto`, 
+`ttemp`.`DescricionCortaProducto`, 
+ttemp.SlugProducto
+FROM (SELECT DISTINCT 
 `pr`.`IdProducto`, 
 `pr`.`NombreProducto`, 
 `pr`.`IdArea`, 
 `pr`.`IdCategoriaProducto`, 
 `pr`.`IdSubCategoriaProducto`, 
 `pr`.`DescricionCortaProducto`, 
-(SELECT  MATCH(NombreSlug) AGAINST ('"microserver"') AS match1
+(SELECT  MATCH(NombreSlug) AGAINST ('"azucar" "caramelo"') AS match1
 FROM slug  AS slug2 WHERE slug2.IdSlug=sl.IdSlug) AS match2,
 `pr`.`SlugProducto` 
 FROM `producto` AS `pr` INNER JOIN `detalleslug` AS `dts` ON pr.IdProducto = dts.IdProducto 
