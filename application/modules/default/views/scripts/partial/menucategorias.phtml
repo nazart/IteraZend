@@ -53,15 +53,19 @@
             <?php 
             $href='?marca='.$index['SlugMarca'];
             $checked='';
-            $arrayfiltro = explode('|',$this->slugMarcaFiltro);
+            $arrayfiltro = explode(',',$this->slugMarcaFiltro);
+            
+            
+            
             if(in_array($index['SlugMarca'], $arrayfiltro)){
-                $newSlugMarcaFiltro = str_replace($index['SlugMarca'].'|','',$this->slugMarcaFiltro);
-                $newSlugMarcaFiltro = str_replace($index['SlugMarca'],'',$this->slugMarcaFiltro);
+                $newArrayFiltro = $arrayfiltro;
+                unset($newArrayFiltro[array_search($index['SlugMarca'],$newArrayFiltro)]);
+                $newSlugMarcaFiltro = implode(',',$newArrayFiltro);
                 $href='?marca='.$newSlugMarcaFiltro;
                 $checked = ' checked="checked" ';
             }else{
                 if($this->slugMarcaFiltro!='')
-                $href='?marca='.$index['SlugMarca'].'|'.$this->slugMarcaFiltro;
+                $href='?marca='.$index['SlugMarca'].','.$this->slugMarcaFiltro;
             }
             ?>
             <a href="<?php echo $href ?>">
