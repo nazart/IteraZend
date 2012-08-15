@@ -28,6 +28,19 @@ class Default_BuscarController extends CST_Controller_ActionDefault {
             $this->_redirect('/buscar/' . $filter->filter(trim($this->_getParam('search')), '-', 0));
         }
         $slug = $filter->filter($this->_getParam('slugBusqueda', ''), '-', 0);
+        
+      $countLine = substr_count($slug, '-');
+      $cadena = $slug;
+      $arrayCadena[] = str_replace('-', " ",$cadena );
+      for($i=1;$i<=$countLine;$i++){
+          $lastPositiom = strrpos($cadena, '-');
+          $cadena = substr($cadena, 0,$lastPositiom);
+          $arrayCadena[] = str_replace('-', " ",$cadena );
+      }
+      $slug=implode('-',$arrayCadena);
+      //echo $slug;
+      //print_r($arrayCadena);
+        //exit;
         $result = Application_Entity_Producto::buscarProductos(str_replace('-', "|", $slug));
         $paginator = Zend_Paginator::factory($result);
         $paginator->setCurrentPageNumber($this->_getParam('page'));

@@ -56,7 +56,7 @@ class Application_Entity_Producto extends CST_Entity{
     
     function setProducto($slugProducto){
         if($idProducto!=''){
-            $data = $this->searchProducto($idProducto);
+            $data = self::searchProducto($idProducto);
             
             }else{
 //            if(empty ($datos)){
