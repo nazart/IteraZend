@@ -3,7 +3,7 @@
         <?php foreach ($this->listaMarcas as $index => $valor): ?>
             <li class="ItemMarca">
                 <div class="ItemMarcaImagen">
-                    <img src="<?php echo $this->listaMarcas[$index][0]['ImagenMarca']; ?>"/>
+                    <img src="<?php echo CST_Server_ServerDinamic::getUrl();?>/img/imagen-marca/<?php echo $this->listaMarcas[$index][0]['ImagenMarca']; ?>"/>
                 </div>
                 <div class="ItemMarcaNombre">
                     <?php echo $this->listaMarcas[$index][0]['NombreMarca']; ?>
@@ -30,11 +30,11 @@
                             <li>
                                 <div class="ItemMarcaProductosDestacadosImagen">
                                 <a href="/productos?marca=<?php echo $index['SlugMarca']; ?>" >
-                                    <img src="<?php echo $index['NombreImagenProducto']; ?>" width="16" height="16" align="absmiddle" /> 
+                                    <img  src="<?php echo CST_Server_ServerDinamic::getUrl();?>/img/imagen-producto/<?php echo $index['NombreImagenProducto']; ?>" width="16" height="16" align="absmiddle" /> 
                                 </a> 
                                 </div>
                                 <div class="ItemMarcaProductosDestacadosNombre">
-                                    <a href="/producto/<?php echo $index['SlugProducto']; ?>"><?php echo $index['NombreProducto']; ?> </a>
+                                    <a href="/productos/detalle-producto/<?php echo $index['SlugProducto']; ?>"><?php echo $index['NombreProducto']; ?> </a>
                                 </div>
                                 <div class="clear"></div>
                             </li>

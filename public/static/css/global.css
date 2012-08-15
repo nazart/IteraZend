@@ -2637,3 +2637,7 @@ ESTILOS PROPIOS DEL POPUP 20090323@JCP
 .ees_title {
     color:#00508c;
 }
+
+.floatFleft {
+    float: left;
+}

@@ -41,13 +41,28 @@
         ?>
     </ul>
 </div>
-<?php if(!empty($this->listaMarcas)){ ?>
+<?php if(!empty($this->listaMarcas)){
+    
+    ?>
 <div class="productos_marcas_treeMenu">
     <div>Marcas</div>
     <ul>
     <?php foreach($this->listaMarcas as $index):?>
-        <li> 
-            <a href="?marca=<?php echo $index['SlugMarca'] ?>"><input type="checkbox" name="marcas[]" value="<?php echo $index['SlugMarca'] ?>"/>  <?php echo $index['NombreMarca'] ?> </a>
+        <li>
+            
+            <?php 
+            $href='?marca='.$index['SlugMarca'];
+            $arrayfiltro = explode(',',$this->slugMarcaFiltro);
+            if(in_array($index['SlugMarca'], $haystackarray)){
+                $href='?marca='.$this->slugMarcaFiltro;
+            }
+            ?>
+            <a href="<?php echo $href ?>">
+                <input type="checkbox" 
+                       name="marcas[]" 
+                       value="<?php echo $index['SlugMarca'] ?>"/>  
+                       <?php echo $index['NombreMarca'] ?> 
+            </a>
         </li>
     <?php endforeach;?>
         <li> 

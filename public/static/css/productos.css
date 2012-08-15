@@ -42,8 +42,6 @@ width: 100%;
 .title_producto{
     text-align: left;
     font-size: 13px;
-    
-        
 }
 .paginationControl{
     padding-bottom: 15px;
@@ -66,7 +64,9 @@ float: left;
 .productos_marcas_treeMenu li{
     padding-left: 15px;
 }
-
+#titleProduct{
+    text-decoration: underline;
+}
 /*menu*/
 #treeMenu {  right:auto; left:15px; top:23px; width:200px;  font:normal 14px 'Segoe UI', Helvetica, Arial, sans-serif; }
 #treeMenu h2 { font:bold 20px 'Segoe UI', Helvetica, Arial, sans-serif; color:#454545; margin-bottom:12px;}
@@ -86,3 +86,42 @@ float: left;
 
 #treeMenu ul li li li { border:0;}
 
+.detailImageProduct{
+    float: left;
+    width: 300px;
+}
+
+.detailImageProduct #imagenMin{
+    float: left;
+    width: 60px;
+    height: 100%;
+    cursor: pointer;
+    padding-left: 4px;
+    padding-right: 4px;
+    /* border: #454545 solid 1px;*/
+}
+.detailImageProduct #imagenMinContent{
+    width: 280px;
+    height: 60px;
+    /* border: #454545 solid 1px; */
+}
+.detailImageProduct #imagenMain{
+    width: 280px;
+    height: 200px;
+    cursor: pointer;
+    /* border: #454545 solid 1px;*/
+}
+
+.detailDescProduct{
+    float: left;
+    width: 344px;
+    /* border: #333 solid; */
+}
+.listSocialMedia div{
+    float: left;
+    width: 50px;
+}
+.cantProduct{
+    float: left;
+    padding-right: 8px;
+}

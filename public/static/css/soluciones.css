@@ -1,0 +1,103 @@
+/* 
+    Document   : marca
+    Created on : 06-ago-2012, 3:32:43
+    Author     : Laptop
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+.ItemSoluciones{
+    float: left;
+    width: 257px;
+    height: 315px;
+    padding: 8px;
+    background-color: white;
+    border: 1px solid #ECECEC;
+    margin: 0 18px 24px 0;
+    position: relative;
+}
+.ItemSolucionesImagen {
+    height: 70px;
+    width: 70px;  
+    padding-top: 10px;
+    padding-left: 10px;
+    border: 1px solid #ECECEC;
+    float: left;
+}
+.ItemSolucionesImagen img{
+    height: 60px;
+    width: 60px;  
+    border: 1px solid #ECECEC;
+}
+.ItemSolucionesNombre{
+    float: right;
+    width: 170px;
+    text-align: right;
+    font-size: large;
+}
+.ItemSolucionesLinkAll{
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 40px;
+    padding-left: 45px;
+}
+.ItemSolucionesLinkAllLeft{
+    background:url(../images/bg-button-blue-med-left.png);
+    width: 9px;
+    height: 28px;
+    float: left;
+}
+.ItemSolucionesLinkAllRight{
+    background:url(../images/bg-button-blue-med-right.png);
+    width: 9px;
+    height: 28px;
+    float: left;
+}
+.ItemSolucionesLinkAllCenter{
+    background:url(../images/bg-button-blue-med-center.png) repeat-x;
+    width: 160px;
+    height: 28px;
+    float: left;
+    padding-top: 5px;
+}
+.ItemSolucionesLinkAllCenter a{
+    font-size: 13px;
+    color: #FFF;
+    font-weight: bold;
+}
+.ItemSolucionesProductosDestacadosImagen{
+    width: 100px;
+    height: 60px;
+    
+    float: left;
+    margin-bottom: 10px;
+    padding-right: 10px;
+    
+    
+}
+.ItemSolucionesProductosDestacadosImagen img{
+    width: 95px;
+    height: 55px;
+    border: 1px solid #ECECEC;
+    
+}
+.ItemSolucionesProductosDestacadosNombre a{
+    font-size: 16px;
+    text-decoration: underline;
+}
+.listaSolucion #imgSolucion{
+    width: 180px;
+    height: 180px;
+    margin-right: 30px;
+    margin-top: 10px;
+    float: left;
+}
+.listaSolucion #descripcionSolucion{
+    float: left;
+    width: 650px;
+}

@@ -37,7 +37,7 @@ abstract class CST_Entity {
      $cl = new ReflectionClass($this);
             $props = $cl->getProperties(ReflectionProperty::IS_PUBLIC);
             foreach ($props as $prop) {
-                $propsFormat[$prop->getName()] = $prop->getValue();
+                $propsFormat[$prop->getName()] = $this->{$prop->getName()};
             }    
      return $propsFormat;
     }

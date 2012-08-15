@@ -1,0 +1,19 @@
+
+<?php foreach($this->soluciones as $index): ?>
+<div class="listaSolucion">
+<h2><?php echo $index['NombreSoluciones']?></h2>
+<div id="imgSolucion">
+<img src="<?php echo CST_Server_ServerDinamic::getUrl();?>/img/imagen-soluciones/<?php echo $index['ImagenSoluciones']; ?>" />
+</div>
+<p id="descripcionSolucion">
+    <?php echo $index['DescripcionCortaSoluciones']?>
+</p>
+<div class="clear"></div>
+<div style="float: right">
+<a href="/soluciones/detalle-solucion/<?php echo $index['SlugSoluciones']; ?>" >Ver mas <img src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/images/double_arrow_right.gif" alt="Conozca más" /></a>
+</div>
+</div>
+<div class="clear"></div>
+<hr/>
+<br/>
+<?php endforeach; ?>

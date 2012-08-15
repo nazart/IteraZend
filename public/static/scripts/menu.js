@@ -6,7 +6,6 @@ $(document).ready(function (){
         $(this).parent('li').find('div:first').slideToggle();
 		 
     });
-    
     $('#main_navigation ul > li').hover (
     
         function () {
