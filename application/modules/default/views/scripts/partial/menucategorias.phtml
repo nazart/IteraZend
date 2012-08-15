@@ -52,13 +52,21 @@
             
             <?php 
             $href='?marca='.$index['SlugMarca'];
-            $arrayfiltro = explode(',',$this->slugMarcaFiltro);
-            if(in_array($index['SlugMarca'], $haystackarray)){
-                $href='?marca='.$this->slugMarcaFiltro;
+            $checked='';
+            $arrayfiltro = explode('|',$this->slugMarcaFiltro);
+            if(in_array($index['SlugMarca'], $arrayfiltro)){
+                $newSlugMarcaFiltro = str_replace($index['SlugMarca'].'|','',$this->slugMarcaFiltro);
+                $newSlugMarcaFiltro = str_replace($index['SlugMarca'],'',$this->slugMarcaFiltro);
+                $href='?marca='.$newSlugMarcaFiltro;
+                $checked = ' checked="checked" ';
+            }else{
+                if($this->slugMarcaFiltro!='')
+                $href='?marca='.$index['SlugMarca'].'|'.$this->slugMarcaFiltro;
             }
             ?>
             <a href="<?php echo $href ?>">
                 <input type="checkbox" 
+                       <?php echo $checked; ?>
                        name="marcas[]" 
                        value="<?php echo $index['SlugMarca'] ?>"/>  
                        <?php echo $index['NombreMarca'] ?> 
