@@ -13,7 +13,7 @@
                     <div class="ItemMarcaLinkAllLeft">
                     </div>
                     <div class="ItemMarcaLinkAllCenter">
-                    <a href="/productos?marca=<?php echo $this->listaMarcas[$index][0]['SlugMarca']; ?>" >
+                    <a href="<?php echo CST_Server_ServerBaseUrl::getUrl();?>/productos?marca=<?php echo $this->listaMarcas[$index][0]['SlugMarca']; ?>" >
                         Todas las Marcas
                     </a>    
                     </div>
@@ -29,12 +29,12 @@
                         <?php foreach ($valor as $index): ?>
                             <li>
                                 <div class="ItemMarcaProductosDestacadosImagen">
-                                <a href="/productos?marca=<?php echo $index['SlugMarca']; ?>" >
+                                <a href="<?php echo CST_Server_ServerBaseUrl::getUrl();?>/productos?marca=<?php echo $index['SlugMarca']; ?>" >
                                     <img  src="<?php echo CST_Server_ServerDinamic::getUrl();?>/img/imagen-producto/<?php echo $index['NombreImagenProducto']; ?>" width="16" height="16" align="absmiddle" /> 
                                 </a> 
                                 </div>
                                 <div class="ItemMarcaProductosDestacadosNombre">
-                                    <a href="/productos/detalle-producto/<?php echo $index['SlugProducto']; ?>"><?php echo $index['NombreProducto']; ?> </a>
+                                    <a href="<?php echo CST_Server_ServerBaseUrl::getUrl();?>/productos/detalle-producto/<?php echo $index['SlugProducto']; ?>"><?php echo $index['NombreProducto']; ?> </a>
                                 </div>
                                 <div class="clear"></div>
                             </li>

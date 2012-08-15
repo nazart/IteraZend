@@ -5,7 +5,7 @@
         </span>
         <!-- Previous page link -->
         <?php if (isset($this->previous)): ?>
-            <a href="/productos/page/<?php echo $this->previous; ?>">    
+            <a href="<?php echo CST_Server_ServerBaseUrl::getUrl();?>/productos/page/<?php echo $this->previous; ?>">    
                 &lt; Anterior
             </a> 
         <?php else: ?>
@@ -15,7 +15,7 @@
         <!-- Numbered page links -->
         <?php foreach ($this->pagesInRange as $page): ?>
             <?php if ($page != $this->current): ?>
-                <a href="/productos/page/<?php echo $page ?>">    
+                <a href="<?php echo CST_Server_ServerBaseUrl::getUrl();?>/productos/page/<?php echo $page ?>">    
                     <?php echo $page; ?>
                 </a> 
             <?php else: ?>
@@ -24,7 +24,7 @@
         <?php endforeach; ?>
         <!-- Next page link -->
         <?php if (isset($this->next)): ?>
-            <a href="/productos/page/<?php echo $this->next; ?>">    
+            <a href="<?php echo CST_Server_ServerBaseUrl::getUrl();?>/productos/page/<?php echo $this->next; ?>">    
                 Siguiente &gt;
             </a>
         <?php else: ?>

@@ -42,7 +42,7 @@
                 <br/>
                 
                 <div class="button floatFleft"  >
-                    <a href="/cotizar/<?php echo $this->detalleProducto['_slugProducto'] ?>" id="ajax_id_product_<?php echo $this->detalleProducto['_idProducto'] ?>" rel="ajax_id_product_<?php echo $this->detalleProducto['_idProducto'] ?>"  title="Cotizar <?php echo $this->detalleProducto['_nombreProducto']; ?>">
+                    <a href="<?php echo CST_Server_ServerBaseUrl::getUrl();?>/cotizar/<?php echo $this->detalleProducto['_slugProducto'] ?>" id="ajax_id_product_<?php echo $this->detalleProducto['_idProducto'] ?>" rel="ajax_id_product_<?php echo $this->detalleProducto['_idProducto'] ?>"  title="Cotizar <?php echo $this->detalleProducto['_nombreProducto']; ?>">
                         <img src="<?php echo CST_Server_ServerStatic::getUrl();?>/images/btcotizar.jpg" alt="Conozca más"/>
                     </a>
                 </div>
