@@ -29,7 +29,7 @@
             <div id="header_wrapper">
                 <div id="header_cell">
                     <div id="header_logo">
-                        <a href="/" title="ESET Latinoam&eacute;rica">
+                        <a href="<?php echo CST_Server_ServerBaseUrl::getUrl()?>/" title="Itera">
                             <img src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/images/itera_logo.png" alt="ESET - Compañía global de soluciones de software de seguridad" /></a></div>
                 </div>
 
@@ -40,7 +40,7 @@
                     $this->navigation()->menu()->setPartial($partial);
                     echo $this->navigation()->menu()->render();
                     ?>
-                    <form id="search_form" action="/buscar" method="post" >
+                    <form id="search_form" action="<?php echo CST_Server_ServerBaseUrl::getUrl()?>/buscar" method="post" >
                         <div id="navigation_search" style="padding:0px; margin:0px; margin-right:15px;">
                             <input type="text" name="search" id="question_box" value="Escriba su consulta aquí..." onblur="if(this.value=='') this.value= 'Escriba su consulta aquí...';" onfocus="if(this.value=='Escriba su consulta aquí...') this.value='';" />
                             <a href="#" onclick="if(this.parentNode.parentNode.onsubmit()){this.parentNode.parentNode.submit();}return false;">&nbsp;</a>
@@ -70,7 +70,7 @@
                         </div>
                         <div id="ticker">
                             <p style="visibility:visible;opacity:1;">
-                                <a href="/nosotros">
+                                <a href="<?php echo CST_Server_ServerBaseUrl::getUrl(); ?>/nosotros">
                                     <span style="color:#006B6E; font-weight:bold;">&iquest;Desea saber m&aacute;s acerca de Itera ? <strong>Haga clic aqu&iacute;</strong>
                                     </span>
                                 </a>
@@ -83,13 +83,13 @@
                     <?php
                     if (!$indexBool) {
                         if($this->breadcrumbs==''){
-                        echo '<div class="breadcrumb">Estas en: <a href="/"> Inicio </a> &raquo; ' . $this->navigation()
+                        echo '<div class="breadcrumb">Estas en: <a href="'.CST_Server_ServerBaseUrl::getUrl().'/"> Inicio </a> &raquo; ' . $this->navigation()
                                 ->breadcrumbs()
                                 ->setMinDepth(0)
                                 ->setLinkLast(true)
                                 ->setSeparator(" &raquo; " . PHP_EOL) . '</div><hr></hr><p>';
                     }else{
-                        echo '<div class="breadcrumb">Estas en: <a href="/"> Inicio </a> &raquo; ' .
+                        echo '<div class="breadcrumb">Estas en: <a href="'.CST_Server_ServerBaseUrl::getUrl().'/"> Inicio </a> &raquo; ' .
                                 $this->breadcrumbs . '</div><hr></hr><p>';
                     }}
                     ?>
@@ -109,13 +109,13 @@
 
                     <div id="quicklinks_cell">
                         <div id="quicklinks"  >
-                            <a href="/productos">Nuestros Productos</a>
+                            <a href="<?php echo CST_Server_ServerBaseUrl::getUrl()?>/productos">Nuestros Productos</a>
                             |
-                            <a href="/marcas">Nuestras Marcas</a>
+                            <a href="<?php echo CST_Server_ServerBaseUrl::getUrl()?>/marcas">Nuestras Marcas</a>
                             |
-                            <a href="/soluciones">Nuestras Soluciones</a>
+                            <a href="<?php echo CST_Server_ServerBaseUrl::getUrl()?>/soluciones">Nuestras Soluciones</a>
                             |
-                            <a href="/contactenos">Contactenos</a>
+                            <a href="<?php echo CST_Server_ServerBaseUrl::getUrl()?>/contactenos">Contactenos</a>
                         </div>
                         <div class="contenedor-redes-sociales">
                             <div class="redes-sociales-iconos">
