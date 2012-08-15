@@ -5,22 +5,22 @@
                 <div id="">
 
                     <div>
-                        <a href="<?php echo $this->baseUrl(); ?>/productos/detalle-producto/<?php echo $index['SlugProducto'] ?>" title="<?php echo $index['NombreProducto'] ?>">
+                        <a href="<?php echo CST_Server_ServerBaseUrl::getUrl(); ?>/productos/detalle-producto/<?php echo $index['SlugProducto'] ?>" title="<?php echo $index['NombreProducto'] ?>">
                             <img class="img_product" src="<?php echo CST_Server_ServerDinamic::getUrl(); ?>/img/imagen-producto/<?php echo $index['ImagenProducto'] ?>?<?php echo rand(0, 1000); ?>" alt="<?php echo $index['NombreProducto'] ?>" />
                         </a>
                     </div>
                     <h5 class="title_producto">
-                        <a href="<?php echo $this->baseUrl(); ?>/productos/detalle-producto/<?php echo $index['SlugProducto'] ?>" title="<?php echo $index['NombreProducto'] ?>"><?php echo $index['NombreProducto'] ?></a>
+                        <a href="<?php echo CST_Server_ServerBaseUrl::getUrl(); ?>/productos/detalle-producto/<?php echo $index['SlugProducto'] ?>" title="<?php echo $index['NombreProducto'] ?>"><?php echo $index['NombreProducto'] ?></a>
                     </h5>
                     <div>
-                        <form id="form_pres_<?php echo $index['IdProducto'] ?>" action="/carrito-compras/registrar-producto" method="Post">
+                        <form id="form_pres_<?php echo $index['IdProducto'] ?>" action="<?php echo CST_Server_ServerBaseUrl::getUrl(); ?>/carrito-compras/registrar-producto" method="Post">
                             <input type="hidden" id="hidden_idproducto_<?php echo $index['IdProducto'] ?>" name="slugProducto" value="<?php echo $index['SlugProducto'] ?>" />
                             <p>
-                                <a href="/productos/detalle-producto/<?php echo $index['SlugProducto'] ?>" title="Ver">
-                                    Ver <img src="/static/images/double_arrow_right.gif" alt="Conozca más"/>
+                                <a href="<?php echo CST_Server_ServerBaseUrl::getUrl(); ?>/productos/detalle-producto/<?php echo $index['SlugProducto'] ?>" title="Ver">
+                                    Ver <img src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/images/double_arrow_right.gif" alt="Conozca más"/>
                                 </a>
-                                <a style="float: right" href="/cotizar-productos" id="ajax_id_product_<?php echo $index['IdProducto'] ?>" rel="ajax_id_product_<?php echo $index['IdProducto'] ?>"  title="Cotizar <?php echo $index['NombreProducto'] ?>">
-                                    <img src="/static/images/btcotizar.jpg" alt="Conozca más"/>
+                                <a style="float: right" href="<?php echo CST_Server_ServerBaseUrl::getUrl(); ?>/cotizar-productos" id="ajax_id_product_<?php echo $index['IdProducto'] ?>" rel="ajax_id_product_<?php echo $index['IdProducto'] ?>"  title="Cotizar <?php echo $index['NombreProducto'] ?>">
+                                    <img src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/images/btcotizar.jpg" alt="Conozca más"/>
                                 </a>
                                 
                                 
