@@ -62,7 +62,7 @@ class Application_Model_Producto {
                             ->query()
                             ->fetchAll();
         } else {
-            return $this->_modelProducto
+            $baseProducto = $this->_modelProducto
                             ->getAdapter()
                             ->select()
                             ->from(array('pr' => $this->_modelProducto->getName()), array(
@@ -71,13 +71,19 @@ class Application_Model_Producto {
                                 'pr.IdArea',
                                 'pr.IdCategoriaProducto',
                                 'pr.IdSubCategoriaProducto',
+                                'pr.ImagenProducto',
                                 'pr.DescricionCortaProducto',
                                 'pr.SlugProducto'
-                            ))
-                            ->join(array('mar' => $this->_modelMarca->getName()), 'mar.IdMarca=pr.IdMarca')
-                ->where('mar.SlugMarca=?',$slugMarca)
-                ->query()->fetchAll();
+                            ));
+            if ($slugMarca != '') {
+            $baseProducto = $baseProducto->join(array('mar' => $this->_modelMarca->getName()), 'mar.IdMarca=pr.IdMarca');
+            $slugMarca= "'".str_replace(',', "','", $slugMarca)."'";
+            $baseProducto = $baseProducto->where('mar.SlugMarca in (?)',  new Zend_Db_Expr($slugMarca));
+                    
         }
+        return $baseProducto->query()->fetchAll();
+        }
+        
     }
     function listarProductosArea($slugArea='', $idArea='', $slugMarca='') {
         $baseProducto = $this->_modelProducto
@@ -92,9 +98,13 @@ class Application_Model_Producto {
         }
 
         if ($slugMarca != '') {
-            $baseProducto->join(array('mar' => $this->_modelMarca->getName()), 'mar.IdMarca=pr.IdMarca')
-                    ->where('mar.SlugMarca=?',$slugMarca);
+            $baseProducto = $baseProducto->join(array('mar' => $this->_modelMarca->getName()), 'mar.IdMarca=pr.IdMarca');
+            $slugMarca= "'".str_replace(',', "','", $slugMarca)."'";
+            $baseProducto = $baseProducto->where('mar.SlugMarca in (?)',  new Zend_Db_Expr($slugMarca));
         }
+        //echo $baseProducto;
+        //exit;
+
         return $baseProducto->query()->fetchAll();
     }
 
@@ -110,8 +120,10 @@ class Application_Model_Producto {
             $baseProducto = $baseProducto->where('IdCategoriaProducto=?', $idCategoria);
         }
         if ($slugMarca != '') {
-            $baseProducto->join(array('mar' => $this->_modelMarca->getName()), 'mar.IdMarca=pr.IdMarca')
-                    ->where('mar.SlugMarca=?',$slugMarca);
+            
+            $baseProducto = $baseProducto->join(array('mar' => $this->_modelMarca->getName()), 'mar.IdMarca=pr.IdMarca');
+            $slugMarca= "'".str_replace(',', "','", $slugMarca)."'";
+            $baseProducto = $baseProducto->where('mar.SlugMarca in (?)',  new Zend_Db_Expr($slugMarca));
         }
         return $baseProducto->query()->fetchAll();
     }
@@ -128,8 +140,10 @@ class Application_Model_Producto {
             $baseProducto = $baseProducto->where('IdSubCategoriaProducto=?', $idSubCategoria);
         }
         if ($slugMarca != '') {
-            $baseProducto->join(array('mar' => $this->_modelMarca->getName()), 'mar.IdMarca=pr.IdMarca')
-                    ->where('mar.SlugMarca=?',$slugMarca);
+            
+            $baseProducto = $baseProducto->join(array('mar' => $this->_modelMarca->getName()), 'mar.IdMarca=pr.IdMarca');
+            $slugMarca= "'".str_replace(',', "','", $slugMarca)."'";
+            $baseProducto = $baseProducto->where('mar.SlugMarca in (?)',  new Zend_Db_Expr($slugMarca));
         }
         return $baseProducto->query()->fetchAll();
     }

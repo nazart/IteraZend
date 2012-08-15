@@ -49,14 +49,10 @@
     <ul>
     <?php foreach($this->listaMarcas as $index):?>
         <li>
-            
             <?php 
             $href='?marca='.$index['SlugMarca'];
             $checked='';
             $arrayfiltro = explode(',',$this->slugMarcaFiltro);
-            
-            
-            
             if(in_array($index['SlugMarca'], $arrayfiltro)){
                 $newArrayFiltro = $arrayfiltro;
                 unset($newArrayFiltro[array_search($index['SlugMarca'],$newArrayFiltro)]);

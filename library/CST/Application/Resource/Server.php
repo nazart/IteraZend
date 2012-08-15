@@ -20,6 +20,7 @@ class CST_Application_Resource_Server extends Zend_Application_Resource_Resource
         Zend_Registry::set('_serverDinamic', $option['urlDinamic']);
         Zend_Registry::set('_serverStatic', $option['urlStatic']);
         Zend_Registry::set('_serverStaticAdmin', $option['urlStaticAdmin']);
+        Zend_Registry::set('_serverBaseUrl', $option['baseUrl']);
         /*$this->_urlDinamic = $option['urlDinamic'];
         $this->_urlStatic = $option['urlStatic'];*/
     }
