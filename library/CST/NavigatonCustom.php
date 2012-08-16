@@ -11,12 +11,12 @@
  * @author Laptop
  */
 class CST_NavigatonCustom  {
-    static function gethtmlPages($page,$nivel=1) {
+    static function gethtmlPages($page,$nivel=1,$class='') {
         $html = '';
         $count=$nivel;
         $classNivel = 'menuNivel'.$nivel;
         $style='';
-        if($nivel>1){
+        if($nivel>1 && $class!='MenuSectionArea'){
             $style =' Style ="display:none;" ';
         }
         $html .= "<ul class='".$classNivel."' $style>\n";
@@ -26,15 +26,20 @@ class CST_NavigatonCustom  {
             }else{
                 $html .= "<li class='".$subpage->_class."'>\n";
             }
+            if($subpage->_class=='MenuSectionArea')
+            $clashref ='MenuSectionAreaHref'; 
+            else
+            $clashref =''; 
+            
             if ($subpage->isActive()) {
-                $html .= "<a href='" . $subpage->getHref() . "' class='selected'>" . $subpage->getLabel() . "</a>\n";
+                $html .= "<a href='" . $subpage->getHref() . "' class='selected $clashref'>" . $subpage->getLabel() . "</a>\n";
                 
             } else {
-                $html .= "<a href='" . $subpage->getHref() . "'>" . $subpage->getLabel() . "</a>\n";
+                $html .= "<a class='$clashref' href='" . $subpage->getHref() . "'>" . $subpage->getLabel() . "</a>\n";
             }
             if(!empty($subpage->pages)){
                 $count++;
-                $html .= self::gethtmlPages($subpage->pages,$count);
+                $html .= self::gethtmlPages($subpage->pages,$count,$subpage->_class);
             }
             $html .= "</li>\n";
             if($nivel==1){

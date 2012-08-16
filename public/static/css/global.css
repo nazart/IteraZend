@@ -286,8 +286,15 @@ form#supportContact fieldset dl textarea {
     text-indent:-400px;
 }
 
-.menuNivel2 ul {
+.menuNivel2  {
     position: absolute;
+    z-index: 2;
+    background: #6F7A8E;
+    margin-top: 40px;
+    width: auto;
+    border-left:  #F2F3F5 5px  solid;
+    border-right:  #F2F3F5 5px  solid;
+    border-bottom:  #F2F3F5 5px  solid;
 }
 .menuNivel2 .MenuSectionArea {
 margin: 0;
@@ -296,14 +303,35 @@ float: none;
 position: relative;
 list-style: none;
 display: block;
-padding-left: 10px;
-width: 50px;
-padding-top: 20px;
+width: 150px;
+
 }
+
+.MenuSectionArea{
+    width: 100px;
+    
+}
+.MenuSectionAreaHref{
+    font-size: 12px !important; 
+    height: 30px !important;
+    width: 110px !important;
+    margin-left : 4px !important;
+    margin-right : 4px !important;
+    margin-bottom : 10px !important;
+    text-decoration: none !important;
+    border-bottom:  #F2F3F5 1px  solid !important;
+    font-size: 15px !important;
+    
+}
+
+.MenuSectionArea {
+    
+}
+
 .menuNivel2 .MenuSectionArea a{
-border-bottom: 1px solid #E5CD8E;
 line-height: 30px;
 overflow: hidden;
+width: 110px;
 height: 30px;
 }
 
