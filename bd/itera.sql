@@ -33,7 +33,7 @@ CREATE TABLE `area` (
 
 LOCK TABLES `area` WRITE;
 
-insert  into `area`(`IdArea`,`NombreArea`,`ImagenArea`,`DescripcionCortaArea`,`SlugArea`,`DescripcionArea`) values (1,'area1','banner-eset-smartsecurity-home.jpg','sadasdasd asdasdasd','area1','asdasdasasdasdasdasd\r\nasdasdasd\r\nasd\r\na\r\nsda\r\nsd\r\nasd\r\nsad'),(2,'area2','banner-eset-smartsecurity-home.jpg','asdasdasd asdasd','area2','asdasdasasdasdasdasd\r\nasdasdasd\r\nasd\r\na\r\nsda\r\nsd\r\nasd\r\nsad'),(3,'area3','banner-eset-smartsecurity-home.jpg','asdads asdasdas','area3','asdasdasasdasdasdasd\r\nasdasdasd\r\nasd\r\na\r\nsda\r\nsd\r\nasd\r\nsad');
+insert  into `area`(`IdArea`,`NombreArea`,`ImagenArea`,`DescripcionCortaArea`,`SlugArea`,`DescripcionArea`) values (1,'Hardware y Infraestructura','1.png','sadasdasd asdasdasd','hardware','asdasdasasdasdasdasd\r\nasdasdasd\r\nasd\r\na\r\nsda\r\nsd\r\nasd\r\nsad'),(2,'Seguridad y Proteccion de Datos','2.jpg','asdasdasd asdasd','segurity','asdasdasasdasdasdasd\r\nasdasdasd\r\nasd\r\na\r\nsda\r\nsd\r\nasd\r\nsad'),(3,'Gestion Service & HelpDesk','3.jpg','asdads asdasdas','backup','asdasdasasdasdasdasd\r\nasdasdasd\r\nasd\r\na\r\nsda\r\nsd\r\nasd\r\nsad');
 
 UNLOCK TABLES;
 
@@ -50,13 +50,13 @@ CREATE TABLE `banner` (
   `OrdenBanner` tinyint(4) DEFAULT NULL,
   `EstadoBanner` tinyint(4) DEFAULT NULL,
   PRIMARY KEY (`IdBanner`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `banner` */
 
 LOCK TABLES `banner` WRITE;
 
-insert  into `banner`(`IdBanner`,`NombreBanner`,`DescripcionBanner`,`ImagenBanner`,`UrlBanner`,`OrdenBanner`,`EstadoBanner`) values (6,'uno','asdadasd','header-cybersecurity.jpg',NULL,1,1);
+insert  into `banner`(`IdBanner`,`NombreBanner`,`DescripcionBanner`,`ImagenBanner`,`UrlBanner`,`OrdenBanner`,`EstadoBanner`) values (6,'uno','asdadasd','esetmac.jpg',NULL,1,1),(7,'dos',NULL,'essetendpoint.png',NULL,2,1);
 
 UNLOCK TABLES;
 
@@ -71,13 +71,13 @@ CREATE TABLE `categoriaproducto` (
   `IdArea` int(11) DEFAULT NULL,
   `SlugCategoriaProducto` char(200) DEFAULT NULL,
   PRIMARY KEY (`idCategoriaProducto`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 /*Data for the table `categoriaproducto` */
 
 LOCK TABLES `categoriaproducto` WRITE;
 
-insert  into `categoriaproducto`(`idCategoriaProducto`,`NombreCategoriaProducto`,`flagActivoCategoriaProducto`,`IdArea`,`SlugCategoriaProducto`) values (1,'categoria uno',1,1,'catgoria1'),(2,'categoria dos',1,1,'categoria2'),(3,'categoria tres',1,2,'categoria3');
+insert  into `categoriaproducto`(`idCategoriaProducto`,`NombreCategoriaProducto`,`flagActivoCategoriaProducto`,`IdArea`,`SlugCategoriaProducto`) values (1,'Servidores',1,1,'servidores'),(2,'Storage',1,1,'storage'),(3,'Desktop',1,1,'desktop'),(4,'Portatiles',1,1,'portatiles'),(5,'Impresoras',1,1,'impresoras'),(6,'Comunicaciones',1,1,'comunicaciones'),(7,'Accesorios',1,1,'accesorios'),(8,NULL,NULL,NULL,NULL);
 
 UNLOCK TABLES;
 
@@ -142,7 +142,45 @@ CREATE TABLE `core_session` (
 
 LOCK TABLES `core_session` WRITE;
 
-insert  into `core_session`(`Id`,`save_path`,`name`,`Modified`,`LifeTime`,`Data`) values ('64k59bmvflg1fd2ncajfec6c41','','',1345001448,1440,'');
+insert  into `core_session`(`Id`,`save_path`,`name`,`Modified`,`LifeTime`,`Data`) values ('18rt1r2cbk8i266setd63rdi15','','',1345096871,1440,'default|a:1:{s:10:\"cotizacion\";N;}'),('4ttfce2qhgfaja9sdhk3aie2a2','','',1345092647,1440,'default|a:1:{s:10:\"cotizacion\";N;}'),('8kev4vkmjd4f4aejkph7hoqt24','','',1345155118,1440,'default|a:1:{s:10:\"cotizacion\";N;}'),('e7q31kmf1hlcqot8h7v9cgqfa3','','',1345876904,1440,'default|a:1:{s:10:\"cotizacion\";N;}'),('hmb590dnm3rbt8ma7noch0o4r0','','',1345086219,1440,'default|a:1:{s:10:\"cotizacion\";N;}'),('vv2rog7324394jdh3ns3tkrgj4','','',1345670940,1440,'default|a:1:{s:10:\"cotizacion\";N;}');
+
+UNLOCK TABLES;
+
+/*Table structure for table `cotizacion` */
+
+DROP TABLE IF EXISTS `cotizacion`;
+
+CREATE TABLE `cotizacion` (
+  `idCotizacion` int(11) NOT NULL AUTO_INCREMENT,
+  `fechaCotizacion` datetime DEFAULT NULL,
+  `nombre` char(100) DEFAULT NULL,
+  `apellidos` char(100) DEFAULT NULL,
+  `empresa` char(100) DEFAULT NULL,
+  `telefono` char(20) DEFAULT NULL,
+  `email` char(100) DEFAULT NULL,
+  `descripcion` text,
+  PRIMARY KEY (`idCotizacion`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `cotizacion` */
+
+LOCK TABLES `cotizacion` WRITE;
+
+UNLOCK TABLES;
+
+/*Table structure for table `cotizacionproducto` */
+
+DROP TABLE IF EXISTS `cotizacionproducto`;
+
+CREATE TABLE `cotizacionproducto` (
+  `idProducto` int(11) NOT NULL,
+  `idCotizacion` int(11) NOT NULL,
+  PRIMARY KEY (`idProducto`,`idCotizacion`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `cotizacionproducto` */
+
+LOCK TABLES `cotizacionproducto` WRITE;
 
 UNLOCK TABLES;
 
@@ -162,6 +200,26 @@ CREATE TABLE `detalleslug` (
 LOCK TABLES `detalleslug` WRITE;
 
 insert  into `detalleslug`(`IdDetalleSlug`,`IdProducto`,`IdSlug`) values (411,2,44),(412,2,46),(413,1,45),(414,1,57);
+
+UNLOCK TABLES;
+
+/*Table structure for table `ftx_utf8` */
+
+DROP TABLE IF EXISTS `ftx_utf8`;
+
+CREATE TABLE `ftx_utf8` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `col1` varchar(45) NOT NULL,
+  `col2` text NOT NULL,
+  PRIMARY KEY (`id`),
+  FULLTEXT KEY `FTX` (`col1`,`col2`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+/*Data for the table `ftx_utf8` */
+
+LOCK TABLES `ftx_utf8` WRITE;
+
+insert  into `ftx_utf8`(`id`,`col1`,`col2`) values (1,'proliant microserver','proliant microserver'),(2,'proliant','proliant');
 
 UNLOCK TABLES;
 
@@ -195,13 +253,13 @@ CREATE TABLE `marca` (
   `SlugMarca` char(200) DEFAULT NULL,
   `ImagenMarca` char(200) DEFAULT NULL,
   PRIMARY KEY (`IdMarca`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 /*Data for the table `marca` */
 
 LOCK TABLES `marca` WRITE;
 
-insert  into `marca`(`IdMarca`,`NombreMarca`,`SlugMarca`,`ImagenMarca`) values (1,'lg','lg','lg.jpg'),(2,'samsung','samsung','samsung.jpg'),(3,'toshiba','toshiba','toshiba.jpg'),(4,'AOC','aoc','aoc.jpg');
+insert  into `marca`(`IdMarca`,`NombreMarca`,`SlugMarca`,`ImagenMarca`) values (1,'HP','hp','hp.jpg'),(2,'IBM','ibm','ibm.jpg'),(3,'EMC','emc','emc.jpg'),(5,'LENOVO','lenovo','lenovo.gif'),(6,'TOSHIBA','toshiba','toshiba.jpg'),(7,'OKIDATA','okidata','okidata.gif'),(8,'CISCO','cisco','cisco.gif');
 
 UNLOCK TABLES;
 
@@ -221,7 +279,7 @@ CREATE TABLE `paginainterna` (
 
 LOCK TABLES `paginainterna` WRITE;
 
-insert  into `paginainterna`(`IdPaginaInterna`,`NombrePaginaInterna`,`ContenidoPaginaInterna`,`UrlPaginaInterna`) values (1,'Nosotros','\r\nINCLUYE\r\n\r\n    Home Theater HT-E320/PE 150W\r\n\r\nCARACTERÍSTICAS DEL PRODUCTO\r\n\r\n    2.1 canales\r\n    Capacidad para 1 disco\r\n    Potencia total de 150 Watts\r\n    Ecualizador\r\n    Grabación USB\r\n    Discos Reproducibles: CD DA / CD-R / CD-RW / DVD-Video / DVD±R / DVD±RW / VCD\r\n    Salida de componente\r\n    Entrada HDMI\r\n    Entrada de audio\r\n\r\nINFORMACIÓN ADICIONAL\r\n\r\n    Garantía del producto: 1 año\r\n\r\n','/nosotros');
+insert  into `paginainterna`(`IdPaginaInterna`,`NombrePaginaInterna`,`ContenidoPaginaInterna`,`UrlPaginaInterna`) values (1,'Nosotros','				<a id=\"imGoToCont\"></a>\r\n				<h2 id=\"imPgTitle\">Nosotros</h2>\r\n				<div style=\"width: 984px; float: left;\">\r\n					<div id=\"imCell_3\" class=\"imGrid[0, 0]\">\r\n					<div id=\"imCellStyleGraphics_3\">\r\n					</div><div id=\"imCellStyle_3\">\r\n					\r\n				<div style=\"width: 984px; float: left;\">\r\n					<div style=\"float: left; width: 246px;\">\r\n						<div id=\"imCell_2\" class=\"imGrid[1, 1]\"><div id=\"imCellStyleGraphics_2\"></div><div id=\"imCellStyle_2\"><div id=\"imTextObject_2\" style=\"text-align: left;\"><p style=\"text-align: left;\"><span class=\"ff2 cf3 fs22\"><b>MISION:</b></span><b><span class=\"fs20 cf1 ff2\"><br /></span></b><span class=\"fs18 cf0 ff2\"><br />Asistir y acompa&#241;ar a las empresas que buscan fortalecer su competitividad y mejorar sus procesos de negocios <br />mediante la incorporaci&#243;n de lo </span><span class=\"cf1 fs18 ff2\">&#250;ltimo en tecnolog&#237;as de la informaci&#243;n, infraestructura y mejores pr&#225;cticas.</span><span class=\"cf0 fs18 ff2\"> <br /></span></p><p style=\"text-align: justify;\"><span class=\"ff2 cf0 fs18\"><br /></span></p><p style=\"text-align: center;\"><span class=\"ff2 cf3 fs18\">-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr></span><span class=\"cf1 ff2 fs18\"><br /></span><span class=\"fs20 cf3 ff2\"><b><br /></b></span></p><p style=\"text-align: left;\"><span class=\"ff2 cf3 fs22\"><b>VISION:</b></span><b><span class=\"fs18 cf1 ff2\"><br /></span></b><span class=\"cf0 fs18 ff2\"><br /></span><span class=\"fs20 cf0 ff2\">Ser el proveedor de referencia l&#237;der en la aplicaci&#243;n de Soluciones Tecnol&#243;gicas, mediante el desarrollo de relaciones de largo plazo con nuestros &nbsp;clientes, ofreciendo excelencia en el servicio y superando las expectativas de valor agregado. </span><span class=\"fs18 cf1 ff2\"><br /></span><span class=\"cf3 fs18 ff2\"><br /></span></p><p style=\"text-align: center;\"><span class=\"ff2 cf3 fs18\">-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr></span><span class=\"cf1 ff2 fs18\"><br /></span><span class=\"fs20 cf3 ff2\"><b><br /></b></span></p><p style=\"text-align: left;\"><span class=\"ff2 cf3 fs22\"><b>VALORES:</b></span><b><span class=\"fs20 ff2 cf3\"><br /></span><span class=\"cf0 fs20 ff2\"><br /></span></b></p><ul><li><p style=\"text-align: left;\"><span class=\"ff2 cf0 fs20\"><b> </b>Honestidad<br /></span></p></li><li><p style=\"text-align: left;\"><span class=\"ff2 cf0 fs20\"><span class=\"ff2\"> Respeto<br /></span></span></p></li><li><p style=\"text-align: left;\"><span class=\"ff2 cf0 fs20\"><span class=\"ff2\"><span class=\"ff2\"> Excelencia <br /></span></span></span></p></li><li><p style=\"text-align: left;\"><span class=\"ff2 cf0 fs20\"><span class=\"ff2\"><span class=\"ff2\"><span class=\"ff2\"> Calidad<br /></span></span></span></span></p></li><li><p style=\"text-align: left;\"><span class=\"ff2 cf0 fs20\"><span class=\"ff2\"><span class=\"ff2\"><span class=\"ff2\"><span class=\"ff2\"> Creatividad<br /></span></span></span></span></span></p></li><li><p style=\"text-align: left;\"><span class=\"ff2 cf0 fs20\"><span class=\"ff2\"><span class=\"ff2\"><span class=\"ff2\"><span class=\"ff2\"><span class=\"ff2\"> Progreso<br /></span></span></span></span></span></span></p></li><li><p style=\"text-align: left;\"><span class=\"ff2 cf0 fs20\"><span class=\"ff2\"><span class=\"ff2\"><span class=\"ff2\"><span class=\"ff2\"><span class=\"ff2\"><span class=\"ff2\"> Deseo de Innovar<br /></span></span></span></span></span></span></span></p></li></ul><p style=\"text-align: left;\"><span class=\"fs18 ff2 cf0\"><br /></span></p><p style=\"text-align: center;\"><span class=\"ff2 cf3 fs18\">-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr>-<wbr></span><span class=\"cf0 ff2 fs18\"><br /><br /></span><span class=\"fs24 cf3 ff2\"><b>www.itera.com.pe</b></span><span class=\"fs18 cf0 ff3\"><br /></span></p></div></div></div>\r\n					</div>\r\n					<div style=\"float: left; width: 738px;\">\r\n						<div id=\"imCell_1\" class=\"imGrid[1, 1]\"><div id=\"imCellStyleGraphics_1\"></div><div id=\"imCellStyle_1\"><div id=\"imTextObject_1\" style=\"text-align: left;\"><p style=\"text-align: justify;\"><span class=\"ff2 cf3 fs22\"><b>ITERA S.A.C: <br /></b></span><b><span class=\"cf0 ff2 fs22\"><br /></span></b><span class=\"fs18 cf0 ff2\">Es una empresa proveedora de soluciones y servicios, basados fundamentalmente en la utlizaci&#243;n de Tecnolog&#237;as para el correcto desarrollo &nbsp;de los negocios. La finalidad de la empresa es brindar productos y servicios de alta calidad, con soporte t&#233;cnico especializado permanentemente y un servicio de post-<wbr>venta eficaz. Nuestras soluciones son aplicables en todos los rubros y abarcan desde &nbsp;la etapa de an&#225;lisis y consultoria estrat&#233;gica, dise&#241;o y puesta en marca del proyecto, hasta el posterior soporte y mantenimiento.<br /><br /><b><br /></b></span><b><span class=\"fs22 cf3 ff2\">OBJETIVOS:<br /></span></b><span class=\"cf0 fs22 ff2\"><br /></span></p><ul><li><p style=\"text-align: justify;\"><span class=\"fs18 ff2 cf0\">Aplicar las correctas Soluciones Tecnol&#243;gicas para crear una plataforma eficiente en donde se pueda desarrollar con mayor productividad a las actividades a la que se dedica su empresa.<br /></span></p></li><li><p style=\"text-align: justify;\"><span class=\"ff2 cf0 fs18\">Combinamos experiencia, capacidad, conocimiento e investigaci&#243;n de nuevas tendencias y tecnolog&#237;as para explotar al m&#225;ximo las capacidades &nbsp;de su compa&#241;ia.<br /></span></p></li></ul><p style=\"text-align: center;\"><span class=\"fs18 ff2 cf0\"> <br /></span><span class=\"fs24 cf4 ff3\"><br /></span></p><p style=\"text-align: center; padding-left: 30px;\"><span class=\"ff2 cf0 fs18\"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=\"fs20 ff0 cf0\"><img src=\"/dinamic/img/nosotros/itera.jpg\" style=\"width: 543px; height: 385px;\" alt=\"\" title=\"\"/></span><span class=\"fs18 cf4 ff4\"><span class=\"imUl\"><br /></span></span><span class=\"fs20 cf3 ff4\"><b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href=\"\\dinamic\\img\\nosotros\\itera.pdf\" target=\"_blank\" class=\"imCssLink\">Descargar nuestra Carpeta de Presentaci&#243;n</a> </b></span></p><p style=\"text-align: center; padding-left: 30px;\"><span class=\"cf0 ff3 fs20\"><b><br /></b></span></p><p style=\"text-align: left;\"><span class=\"fs20 ff3 cf0\"><b><br /></b></span></p><p style=\"text-align: center;\"><span class=\"ff2 cf0 fs18\"><br /><br /></span></p></div></div></div>\r\n					</div>\r\n					\r\n				</div>\r\n				<div style=\"width: 984px; float: left;\">\r\n					<div style=\"height: 15px;\">&nbsp;</div>\r\n				</div>\r\n			','/nosotros');
 
 UNLOCK TABLES;
 
@@ -242,13 +300,11 @@ CREATE TABLE `producto` (
   `DescricionProducto` text,
   `ImagenProducto` char(200) DEFAULT NULL,
   PRIMARY KEY (`IdProducto`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `producto` */
 
 LOCK TABLES `producto` WRITE;
-
-insert  into `producto`(`IdProducto`,`NombreProducto`,`IdArea`,`IdCategoriaProducto`,`IdSubCategoriaProducto`,`PrecioProducto`,`DescricionCortaProducto`,`SlugProducto`,`IdMarca`,`DescricionProducto`,`ImagenProducto`) values (1,'Caramelo',1,1,1,NULL,'Lorem Ipsum is simply dummy text of the printing a','caramelo',1,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.','imagenuno.jpg'),(2,'Azucar',2,3,NULL,NULL,'Lorem Ipsum is simply dummy text of the printing a','azucar',2,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',NULL),(3,'laptop',2,1,1,NULL,'Lorem Ipsum is simply dummy text of the printing a','laptop',1,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',NULL);
 
 UNLOCK TABLES;
 
@@ -308,7 +364,7 @@ CREATE TABLE `soluciones` (
 
 LOCK TABLES `soluciones` WRITE;
 
-insert  into `soluciones`(`IdSoluciones`,`NombreSoluciones`,`DescripcionSoluciones`,`IdCategoriaSoluciones`,`SlugSoluciones`,`ImagenSoluciones`,`DescripcionCortaSoluciones`) values (1,'solucion 1','<div id=\"imCellStyle_2\"><div id=\"imTextObject_2\" style=\"text-align: left;\"><p style=\"text-align: justify;\"><span class=\"ff1 cf0 fs18\">Independientemente del tamaño de su organización</span><span class=\"cf3 ff1 fs18\"><b> ITERA S.A.C</b></span><span class=\"cf0 ff1 fs18\"> cuenta con la solución apropiada para usted. Nuestros productos cuentan con la exacta combinación de rendimiento, eficiencia y efectividad que necesita, entre ellos figuran:<br><br></span></p><p style=\"text-align: left;\"><span class=\"ff2 cf0 fs22\">-<wbr> Infraestructura para Centro de Datos (Servidores, Equipos de Comunicación,<br>-<wbr> Equipos de Respaldo de Energía, Aire Acondicionado y Control de Acceso).<br>-<wbr> Análisis, Diseño e Instalación de Redes (Cableado, Estructurado Co/FO y Wireless)<br>-<wbr> Equipamiento para usuarios Desktop, Móviles y Clientes Ligeros.<br>-<wbr> Monitoreo y Administración de Ancho de Banda.<br>-<wbr> Administración y Seguridad de Redes y Contenidos.<br>-<wbr> Software de Gestión Inteligente de Recursos e Infraestructura TI.<br>-<wbr> Software de Backup y Recuperación de Desastres.<br>-<wbr> Software de Virtualización para Servidores y Desktops.<br>-<wbr> Sistema de Gestión Empresarial ERP.</span><span class=\"fs18 ff3 cf0\"><br></span></p></div></div>',1,'solucion-uno','imagenuno.jpg','Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'),(2,'solucion 2','<div id=\"imCellStyle_2\"><div id=\"imTextObject_2\" style=\"text-align: left;\"><p style=\"text-align: justify;\"><span class=\"ff1 cf0 fs18\">Independientemente del tamaño de su organización</span><span class=\"cf3 ff1 fs18\"><b> ITERA S.A.C</b></span><span class=\"cf0 ff1 fs18\"> cuenta con la solución apropiada para usted. Nuestros productos cuentan con la exacta combinación de rendimiento, eficiencia y efectividad que necesita, entre ellos figuran:<br><br></span></p><p style=\"text-align: left;\"><span class=\"ff2 cf0 fs22\">-<wbr> Infraestructura para Centro de Datos (Servidores, Equipos de Comunicación,<br>-<wbr> Equipos de Respaldo de Energía, Aire Acondicionado y Control de Acceso).<br>-<wbr> Análisis, Diseño e Instalación de Redes (Cableado, Estructurado Co/FO y Wireless)<br>-<wbr> Equipamiento para usuarios Desktop, Móviles y Clientes Ligeros.<br>-<wbr> Monitoreo y Administración de Ancho de Banda.<br>-<wbr> Administración y Seguridad de Redes y Contenidos.<br>-<wbr> Software de Gestión Inteligente de Recursos e Infraestructura TI.<br>-<wbr> Software de Backup y Recuperación de Desastres.<br>-<wbr> Software de Virtualización para Servidores y Desktops.<br>-<wbr> Sistema de Gestión Empresarial ERP.</span><span class=\"fs18 ff3 cf0\"><br></span></p></div></div>',1,'solucion-dos','imagenuno.jpg','Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'),(3,'solucion 3','<div id=\"imCellStyle_2\"><div id=\"imTextObject_2\" style=\"text-align: left;\"><p style=\"text-align: justify;\"><span class=\"ff1 cf0 fs18\">Independientemente del tamaño de su organización</span><span class=\"cf3 ff1 fs18\"><b> ITERA S.A.C</b></span><span class=\"cf0 ff1 fs18\"> cuenta con la solución apropiada para usted. Nuestros productos cuentan con la exacta combinación de rendimiento, eficiencia y efectividad que necesita, entre ellos figuran:<br><br></span></p><p style=\"text-align: left;\"><span class=\"ff2 cf0 fs22\">-<wbr> Infraestructura para Centro de Datos (Servidores, Equipos de Comunicación,<br>-<wbr> Equipos de Respaldo de Energía, Aire Acondicionado y Control de Acceso).<br>-<wbr> Análisis, Diseño e Instalación de Redes (Cableado, Estructurado Co/FO y Wireless)<br>-<wbr> Equipamiento para usuarios Desktop, Móviles y Clientes Ligeros.<br>-<wbr> Monitoreo y Administración de Ancho de Banda.<br>-<wbr> Administración y Seguridad de Redes y Contenidos.<br>-<wbr> Software de Gestión Inteligente de Recursos e Infraestructura TI.<br>-<wbr> Software de Backup y Recuperación de Desastres.<br>-<wbr> Software de Virtualización para Servidores y Desktops.<br>-<wbr> Sistema de Gestión Empresarial ERP.</span><span class=\"fs18 ff3 cf0\"><br></span></p></div></div>',2,'solucion-tres','imagenuno.jpg','Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'),(4,'solucion 4',NULL,2,'solucion-cuatro','imagenuno.jpg','Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.');
+insert  into `soluciones`(`IdSoluciones`,`NombreSoluciones`,`DescripcionSoluciones`,`IdCategoriaSoluciones`,`SlugSoluciones`,`ImagenSoluciones`,`DescripcionCortaSoluciones`) values (1,'Infraestructura','<div id=\"imCellStyle_2\"><div id=\"imTextObject_2\" style=\"text-align: left;\"><p style=\"text-align: justify;\"><span class=\"ff1 cf0 fs18\">Independientemente del tamaño de su organización</span><span class=\"cf3 ff1 fs18\"><b> ITERA S.A.C</b></span><span class=\"cf0 ff1 fs18\"> cuenta con la solución apropiada para usted. Nuestros productos cuentan con la exacta combinación de rendimiento, eficiencia y efectividad que necesita, entre ellos figuran:<br><br></span></p><p style=\"text-align: left;\"><span class=\"ff2 cf0 fs22\">-<wbr> Infraestructura para Centro de Datos (Servidores, Equipos de Comunicación,<br>-<wbr> Equipos de Respaldo de Energía, Aire Acondicionado y Control de Acceso).<br>-<wbr> Análisis, Diseño e Instalación de Redes (Cableado, Estructurado Co/FO y Wireless)<br>-<wbr> Equipamiento para usuarios Desktop, Móviles y Clientes Ligeros.<br>-<wbr> Monitoreo y Administración de Ancho de Banda.<br>-<wbr> Administración y Seguridad de Redes y Contenidos.<br>-<wbr> Software de Gestión Inteligente de Recursos e Infraestructura TI.<br>-<wbr> Software de Backup y Recuperación de Desastres.<br>-<wbr> Software de Virtualización para Servidores y Desktops.<br>-<wbr> Sistema de Gestión Empresarial ERP.</span><span class=\"fs18 ff3 cf0\"><br></span></p></div></div>',1,'solucion-uno','imagenuno.jpg','Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'),(2,'Seguridad y Proteccion de Datos','<div id=\"imCellStyle_2\"><div id=\"imTextObject_2\" style=\"text-align: left;\"><p style=\"text-align: justify;\"><span class=\"ff1 cf0 fs18\">Independientemente del tamaño de su organización</span><span class=\"cf3 ff1 fs18\"><b> ITERA S.A.C</b></span><span class=\"cf0 ff1 fs18\"> cuenta con la solución apropiada para usted. Nuestros productos cuentan con la exacta combinación de rendimiento, eficiencia y efectividad que necesita, entre ellos figuran:<br><br></span></p><p style=\"text-align: left;\"><span class=\"ff2 cf0 fs22\">-<wbr> Infraestructura para Centro de Datos (Servidores, Equipos de Comunicación,<br>-<wbr> Equipos de Respaldo de Energía, Aire Acondicionado y Control de Acceso).<br>-<wbr> Análisis, Diseño e Instalación de Redes (Cableado, Estructurado Co/FO y Wireless)<br>-<wbr> Equipamiento para usuarios Desktop, Móviles y Clientes Ligeros.<br>-<wbr> Monitoreo y Administración de Ancho de Banda.<br>-<wbr> Administración y Seguridad de Redes y Contenidos.<br>-<wbr> Software de Gestión Inteligente de Recursos e Infraestructura TI.<br>-<wbr> Software de Backup y Recuperación de Desastres.<br>-<wbr> Software de Virtualización para Servidores y Desktops.<br>-<wbr> Sistema de Gestión Empresarial ERP.</span><span class=\"fs18 ff3 cf0\"><br></span></p></div></div>',1,'solucion-dos','imagenuno.jpg','Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'),(3,'Backup & Disaster Recovery','<div id=\"imCellStyle_2\"><div id=\"imTextObject_2\" style=\"text-align: left;\"><p style=\"text-align: justify;\"><span class=\"ff1 cf0 fs18\">Independientemente del tamaño de su organización</span><span class=\"cf3 ff1 fs18\"><b> ITERA S.A.C</b></span><span class=\"cf0 ff1 fs18\"> cuenta con la solución apropiada para usted. Nuestros productos cuentan con la exacta combinación de rendimiento, eficiencia y efectividad que necesita, entre ellos figuran:<br><br></span></p><p style=\"text-align: left;\"><span class=\"ff2 cf0 fs22\">-<wbr> Infraestructura para Centro de Datos (Servidores, Equipos de Comunicación,<br>-<wbr> Equipos de Respaldo de Energía, Aire Acondicionado y Control de Acceso).<br>-<wbr> Análisis, Diseño e Instalación de Redes (Cableado, Estructurado Co/FO y Wireless)<br>-<wbr> Equipamiento para usuarios Desktop, Móviles y Clientes Ligeros.<br>-<wbr> Monitoreo y Administración de Ancho de Banda.<br>-<wbr> Administración y Seguridad de Redes y Contenidos.<br>-<wbr> Software de Gestión Inteligente de Recursos e Infraestructura TI.<br>-<wbr> Software de Backup y Recuperación de Desastres.<br>-<wbr> Software de Virtualización para Servidores y Desktops.<br>-<wbr> Sistema de Gestión Empresarial ERP.</span><span class=\"fs18 ff3 cf0\"><br></span></p></div></div>',2,'solucion-tres','imagenuno.jpg','Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'),(4,'Gestion y Mesa de Ayuda',NULL,2,'solucion-cuatro','imagenuno.jpg','Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.');
 
 UNLOCK TABLES;
 
@@ -323,13 +379,13 @@ CREATE TABLE `subcategoriaproducto` (
   `IdCategoriaProducto` int(11) DEFAULT NULL,
   `SlugSubCategoriaProducto` char(200) DEFAULT NULL,
   PRIMARY KEY (`idSubCategoriaProducto`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
 
 /*Data for the table `subcategoriaproducto` */
 
 LOCK TABLES `subcategoriaproducto` WRITE;
 
-insert  into `subcategoriaproducto`(`idSubCategoriaProducto`,`NombreSubCategoriaProducto`,`flagActivoSubCategoriaProducto`,`IdCategoriaProducto`,`SlugSubCategoriaProducto`) values (1,'subcategoria  1',1,1,'subcategoriauno'),(2,'subcategoria dos',1,2,'subcategoria-dos'),(3,'subcategoria tres',1,1,'subcategoria-tres'),(4,'subcategoria cuatro',1,2,'subcategoria-cuatro');
+insert  into `subcategoriaproducto`(`idSubCategoriaProducto`,`NombreSubCategoriaProducto`,`flagActivoSubCategoriaProducto`,`IdCategoriaProducto`,`SlugSubCategoriaProducto`) values (1,'Rackeables',1,1,'rack'),(2,'Torre',1,1,'tower'),(3,'Disco',1,2,'hdd'),(4,'Cinta',1,2,'tape'),(5,'Full Tower',1,3,'full'),(6,'Mid Tower',1,3,'mid'),(7,'Mini Tower',1,3,'mini'),(8,'Slim Line Case',1,3,'slim'),(9,'Small Form Factor',1,3,'smal'),(10,'Workstation',1,4,'workstation'),(11,'Home',1,4,'home'),(12,'Lacer',1,5,'lacer'),(13,'Tinta',1,5,'tinta'),(14,'Matrizial',1,5,'matriz'),(15,'Ploter',1,5,'plotter'),(16,'red',1,5,'red'),(17,'Router',1,6,'router'),(18,'Router Administrable',1,6,'router_admin'),(19,'Switch',1,6,'switch'),(20,'Switch Administrable',1,6,'switch_admin'),(21,'Hub',1,6,'hub'),(22,'VoIP',1,6,'voip'),(23,'WiFi',1,6,'wifi'),(24,'Gabinetes',1,7,'gabinete'),(27,'FortiGate Network Security	',NULL,NULL,NULL);
 
 UNLOCK TABLES;
 

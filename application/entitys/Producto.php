@@ -35,7 +35,7 @@ class Application_Entity_Producto extends CST_Entity{
     }
     
     function searchProducto($slugProducto='',$idProducto=''){
-        $datos = $this->_modelProducto->listarDetalleProducto($slugProducto);
+        $datos = $this->_modelProducto->listarDetalleProducto($slugProducto,$idProducto);
         $this->_idProducto = $datos['IdProducto'];
         $this->_nombreProducto = $datos['NombreProducto'];
         $this->_idArea = $datos['IdArea'];

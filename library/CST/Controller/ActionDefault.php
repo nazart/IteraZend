@@ -23,12 +23,12 @@ class CST_Controller_ActionDefault extends CST_Controller_Action {
         $listaCategorias = Application_Entity_Producto::listarArbolCategoriasProductos();
         $listaSoluciones = Application_Entity_Soluciones::listarArbolCategoriasSoluciones();
         $configNavigationArray = array(
-            'home' => array('label' => 'Inicio', 'uri' => CST_Server_ServerBaseUrl::getUrl().'/', 'orden' => '1'),
-            'nosotros' => array('label' => 'Nosotros', 'uri' => CST_Server_ServerBaseUrl::getUrl().'/nosotros', 'orden' => '2'),
-            'productos' => array('label' => 'Productos', 'uri' => CST_Server_ServerBaseUrl::getUrl().'/productos', 'orden' => '3'),
-            'marcas' => array('label' => 'Marcas', 'uri' => CST_Server_ServerBaseUrl::getUrl().'/marcas', 'orden' => '4'),
-            'soluciones' => array('label' => 'Soluciones', 'uri' => CST_Server_ServerBaseUrl::getUrl().'/soluciones', 'orden' => '5'),
-            'contactenos' => array('label' => 'Contactenos', 'uri' => CST_Server_ServerBaseUrl::getUrl().'/contactenos', 'orden' => '6'),
+            'home' => array('label' => 'Inicio', 'uri' => '/', 'orden' => '1'),
+            'nosotros' => array('label' => 'Nosotros', 'uri' => '/nosotros', 'orden' => '2'),
+            'productos' => array('label' => 'Productos', 'uri' => '/productos', 'orden' => '3'),
+            'marcas' => array('label' => 'Marcas', 'uri' => '/marcas', 'orden' => '4'),
+            'soluciones' => array('label' => 'Soluciones', 'uri' => '/soluciones', 'orden' => '5'),
+            'contactenos' => array('label' => 'Contactenos', 'uri' => '/contactenos', 'orden' => '6'),
         );
         $configNavigationArray['productos']['pages'] = $listaCategorias;
         $configNavigationArray['soluciones']['pages'] = $listaSoluciones;

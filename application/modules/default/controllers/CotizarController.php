@@ -16,6 +16,25 @@ class Default_CotizarController extends CST_Controller_ActionDefault
         $this->view->flashMessenger = $this->_flashMessenger->getMessages();
         if ($this->_request->isPost()) {
             if ($form->isValid($this->_getAllParams())) {
+                $cotizacion = new Application_Entity_Cotizacion();
+                $paramCotizacion = $form->getValues();
+                $data['_nombre'] = $paramCotizacion['nombres'];
+                $data['_apellidos'] = $paramCotizacion['apellidos'];
+                $data['_empresa'] = $paramCotizacion['empresa'];
+                $data['_telefono'] = $paramCotizacion['telefono'];
+                $data['_email'] = $paramCotizacion['mail'];
+                $data['_descripcion'] = $paramCotizacion['descripcion'];
+                $cotizacion->setProperties($data);
+                $productos = new Application_Entity_Producto();
+                foreach($this->_sessiondefault->cotizacion as $index){
+                    $productos->setProperties($index);
+                    $cotizacion->insertarProducto($producto);
+                }
+                $cotizacion->insertContizacion();
+                
+                
+                
+                
                $this->_flashMessenger->addMessage('La cotizacion se registro correctamente: En breve nos estaremos poniendo en contacto con usted Gracias!');
                $this->_redirect('/cotizar');
             }else{
