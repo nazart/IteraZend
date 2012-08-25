@@ -11,8 +11,8 @@
  * @author Laptop
  */
 class Application_Model_TableBase_Categoria extends CST_Db_Table{
-    protected  $_name = "categoria";
-    protected  $_primary = "IdCategoria";
+    protected  $_name = "categoriaproducto";
+    protected  $_primary = "idCategoriaProducto";
 
 }
 

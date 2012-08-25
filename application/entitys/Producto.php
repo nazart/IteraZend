@@ -79,6 +79,9 @@ class Application_Entity_Producto extends CST_Entity{
     function getProducto(){
         return $this->getProperties();
     }
+    
+    
+    
     static function listarArbolCategoriasProductos() {
         $modelProducto = new Application_Model_Producto();
         $arbol = $modelProducto->listarArbolCategoriaProducto();
