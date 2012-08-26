@@ -12,7 +12,7 @@
  */
 class Application_Model_TableBase_SubCategoriaProducto extends CST_Db_Table{
     protected  $_name = "subcategoriaproducto";
-    protected  $_primary = "IdSubCategoria";
+    protected  $_primary = "idSubCategoriaProducto";
 
 }
 

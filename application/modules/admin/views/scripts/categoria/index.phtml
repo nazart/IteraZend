@@ -1,0 +1,31 @@
+<div>
+    [<a href="/admin/categoria/create-categoria">Nueva Categoria</a>]
+</div>
+<hr></hr>
+<table>
+    <tr>
+        <td>IdCategoria<hr></hr></td>
+        <td>Nombre<hr></hr></td>
+        <td>Estado<hr></hr></td>
+        <td>Area<hr></hr></td>
+        <td colspan="3" >Acciones<hr></hr></td>
+    </tr>
+<?php foreach($this->categoria as $index)
+{
+?>
+    <tr>
+        <td><?php echo $index['idCategoriaProducto'] ?></td>
+        <td><?php echo $index['NombreCategoriaProducto'] ?></td>
+        <td><?php echo $index['flagActivoCategoriaProducto']==1?'activo':'desactivo' ?></td>
+        <td><?php echo $index['NombreArea'] ?></td>
+        <td>[<a href="/admin/categoria/edit-categoria/cat/<?php echo $index['idCategoriaProducto'] ?>">Editar</a>]</td>
+        <td>[<a href="/admin/categoria/delete-categoria/cat/<?php echo $index['idCategoriaProducto'] ?>">Eliminar</a>]</td>
+        <?php if($index['flagActivoCategoriaProducto']==1){?>
+        <td>[<a href="/admin/categoria/desactive-categoria/cat/<?php echo $index['idCategoriaProducto'] ?>">Desactivar</a>]</td>
+        <?php }else{ ?>
+        <td>[<a href="/admin/categoria/active-categoria/cat/<?php echo $index['idCategoriaProducto'] ?>">Activar</a>]</td>
+        <?php } ?>
+    </tr>
+
+<?php } ?>
+</table>
