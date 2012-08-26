@@ -1,15 +1,4 @@
 <?php
-
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- * Description of BuscarController
- *
- * @author Laptop
- */
 class Admin_ProductoController extends CST_Controller_ActionAdmin {
 
     public function init() {

@@ -1,0 +1,31 @@
+<div>
+    [<a href="/admin/soluciones/create-soluciones">Nueva soluciones</a>]
+</div>
+<hr></hr>
+<table>
+    <tr>
+        <td>IdSolucione<hr></hr></td>
+        <td>Nombre<hr></hr></td>
+        <td>Categoria<hr></hr></td>
+        <td>Activo<hr></hr></td>
+        <td colspan="3" >Acciones<hr></hr></td>
+    </tr>
+<?php foreach($this->soluciones as $index)
+{
+?>
+    <tr>
+        <td><?php echo $index['IdSoluciones'] ?></td>
+        <td><?php echo $index['NombreSoluciones'] ?></td>
+        <td><?php echo $index['NombreCategoriaSoluciones'] ?></td>
+        <td><?php echo $index['FlagActivoSoluciones']==1?'activo':'desactivo' ?></td>
+        <td>[<a href="/admin/soluciones/edit-soluciones/sol/<?php echo $index['IdSoluciones'] ?>">Editar</a>]</td>
+        <td>[<a href="/admin/soluciones/delete-soluciones/sol/<?php echo $index['IdSoluciones'] ?>">Eliminar</a>]</td>
+        <?php if($index['FlagActivoSoluciones']==1){?>
+        <td>[<a href="/admin/soluciones/desactive-soluciones/sol/<?php echo $index['IdSoluciones'] ?>">Desactivar</a>]</td>
+        <?php }else{ ?>
+        <td>[<a href="/admin/soluciones/active-soluciones/sol/<?php echo $index['IdSoluciones'] ?>">Activar</a>]</td>
+        <?php } ?>
+    </tr>
+
+<?php } ?>
+</table>
