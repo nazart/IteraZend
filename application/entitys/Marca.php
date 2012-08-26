@@ -1,15 +1,5 @@
 <?php
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- * Description of Marca
- *
- * @author Laptop
- */
 class Application_Entity_Marca {
     //put your code here
     static function listarMarcaSociadasProducto($limit=''){
@@ -20,6 +10,10 @@ class Application_Entity_Marca {
         $modelMarca = new Application_Model_Marca();
         return $modelMarca->listarMarcasSociadasProductoDestacados($limit);
     }
+    
+    static function listarMarcas($limit='')
+    {
+        $modelMarca = new Application_Model_Marca();
+        return $modelMarca->listarMarcas();
+    }
 }
-
-?>

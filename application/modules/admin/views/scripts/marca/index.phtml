@@ -1,0 +1,26 @@
+<div>
+    [<a href="/admin/categoria/create-categoria">Nueva Marca</a>]
+</div>
+<hr></hr>
+<table>
+    <tr>
+        <td>IdMarca<hr></hr></td>
+        <td>Nombre<hr></hr></td>
+        <td>slugMarca<hr></hr></td>
+        <td>Imagen<hr></hr></td>
+        <td colspan="2" >Acciones<hr></hr></td>
+    </tr>
+<?php foreach($this->marca as $index)
+{
+?>
+    <tr>
+        <td><?php echo $index['IdMarca'] ?></td>
+        <td><?php echo $index['NombreMarca'] ?></td>
+        <td><?php echo $index['SlugMarca']?></td>
+        <td><?php echo $index['ImagenMarca'] ?></td>
+        <td>[<a href="/admin/categoria/edit-categoria/cat/<?php echo $index['idCategoriaProducto'] ?>">Editar</a>]</td>
+        <td>[<a href="/admin/categoria/delete-categoria/cat/<?php echo $index['idCategoriaProducto'] ?>">Eliminar</a>]</td>       
+    </tr>
+
+<?php } ?>
+</table>
