@@ -12,27 +12,74 @@
  */
 class Application_Entity_Soluciones extends CST_Entity{
     //put your code here
-    public $_idSoluciones;          
-    public $_nombreSoluciones;          
-    public $_descripcionSoluciones;          
-    public $_idCategoriaSoluciones;          
-    public $_slugSoluciones;          
-    public $_imagenSoluciones;
-    protected $_modelSoluciones;
+    public $_id;          
+    public $_nombre;          
+    public $_descripcion;          
+    public $_descripcionCorta;          
+    public $_idCategoria;          
+    public $_flagActivo;          
+    public $_slug;          
+    public $_imagen;
+    
+    private $_modelSoluciones;
 
     function __construct($dataUsuario = null) {
         parent::init($dataUsuario);
         $this->_modelSoluciones = new Application_Model_Soluciones();
         }
     
+    public function editSoluciones(){
+        $this->createSlug();
+        $data = $this->setArrayBd();
+        $this->_modelSoluciones->editarSoluciones($data,$this->_id);
+    }   
+    
+    public function createSoluciones(){
+        $this->createSlug();
+        $data = $this->setArrayBd();
+        $this->_modelSoluciones->insertSoluciones($data);
+    }
+    public function desactivarSoluciones(){
+        $data['flagActivoCategoriaProducto'] = 0;
+        $this->_modelSoluciones->editarCategoria($data,$this->_idCategoria);
+    }
+    public function activarSoluciones(){
+        $data['flagActivoCategoriaProducto'] = 1;
+        $this->_modelSoluciones->editarCategoria($data,$this->_idCategoria);
+    }
+    public function createSlug(){
+        $filter = new CST_SeoUrl();
+        $this->_slug =  $filter->filter(trim($this->_nombre), '-', 0);
+    }
+    
+    public function eliminarSoluciones(){
+        
+    }
+    
+    /*----------------*/
+    private function setArrayBd(){
+        $data['IdSoluciones']=$this->_id;
+        $data['DescripcionSoluciones']=$this->_descripcion;
+        $data['DescripcionCortaSoluciones']=$this->_descripcionCorta;
+        $data['FlagActivoSoluciones']=$this->_flagActivo;
+        $data['IdCategoriaSoluciones']=$this->_idCategoria;
+        $data['ImagenSoluciones'] = $this->_imagen;
+        $data['NombreSoluciones'] = $this->_nombre;
+        $data['SlugSoluciones'] = $this->_slug;
+        return $data;
+    }
+        
+        
     function searchSolucion($slugSoluciones='',$idSoluciones=''){
-        $datos = $this->_modelSoluciones->listarDetalleSoluciones($slugSoluciones);
-        $this->_idSoluciones = $datos['IdSoluciones'];
-        $this->_nombreSoluciones = $datos['NombreSoluciones'];
-        $this->_descripcionSoluciones = $datos['DescripcionSoluciones'];
-        $this->_idCategoriaSoluciones = $datos['IdCategoriaSoluciones'];
-        $this->_slugSoluciones = $datos['SlugSoluciones'];
-        $this->_imagenSoluciones  = $datos['ImagenSoluciones'];
+        $datos = $this->_modelSoluciones->listarDetalleSoluciones($slugSoluciones,$idSoluciones);
+        $this->_id = $datos['IdSoluciones'];
+        $this->_nombre = $datos['NombreSoluciones'];
+        $this->_descripcion = $datos['DescripcionSoluciones'];
+        $this->_flagActivo = $datos['FlagActivoSoluciones'];
+        $this->_descripcionCorta = $datos['DescripcionCortaSoluciones'];
+        $this->_idCategoria = $datos['IdCategoriaSoluciones'];
+        $this->_slug = $datos['SlugSoluciones'];
+        $this->_imagen  = $datos['ImagenSoluciones'];
     }
     
     function getSolucion(){
@@ -45,7 +92,10 @@ class Application_Entity_Soluciones extends CST_Entity{
         $arbol = $modelSoluciones->listarArbolCategoriaSoluciones();
         return self::listarCategoriaSolucionesArbol($arbol);
     }
-    
+    static function listarAllSoluciones(){
+        $modelSoluciones = new Application_Model_Soluciones();
+        return $modelSoluciones->listarSoluciones();
+    } 
     static function listarSoluciones(){
         $modelSoluciones = new Application_Model_Soluciones();
         return $modelSoluciones->arrayAsoccForFirstItem($modelSoluciones->listarArbolCategoriaSoluciones());
