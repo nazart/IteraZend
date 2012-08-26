@@ -1,15 +1,5 @@
 <?php
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- * Description of Categoria
- *
- * @author Laptop
- */
 class Application_Model_Marca extends CST_Model{
 
     //put your code here
@@ -25,7 +15,7 @@ class Application_Model_Marca extends CST_Model{
         $this->_modelImagenProducto = new Application_Model_TableBase_ImagenProducto();
     }
 
-    function listarMarcasSociadasProducto($limit=''){
+        function listarMarcasSociadasProducto($limit=''){
         $result = $this->_modelMarca
                 ->getAdapter()
                 ->select()
@@ -75,7 +65,13 @@ class Application_Model_Marca extends CST_Model{
          $result = $result->query()->fetchAll();
          return $this->arrayAsoccForFirstItem($result);
     }
-    
+    function listarMarcas()
+    {
+        return $this->_modelMarca
+                ->select()
+                ->query()
+                ->fetchAll();
+    }
 }
 
 ?>
