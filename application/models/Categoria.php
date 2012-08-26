@@ -25,6 +25,10 @@ class Application_Model_Categoria {
         $this->_modelCategoria->insert($data);
         return $this->_modelCategoria->getAdapter()->lastInsertId();
     }
+    function editarCategoria($data,$idCategoria) {
+        $where   = $this->_modelCategoria->getAdapter()->quoteInto('idCategoriaProducto =?',$idCategoria);
+        return $this->_modelCategoria->update($data,$where);
+    }
 
     function listarCategoriasActivas() {
         return $this->_modelCategoria
@@ -42,7 +46,7 @@ class Application_Model_Categoria {
         ;
     }
 
-    function getCategoria() {
+    function getCategoria($idCategoria) {
         return $this->_modelCategoria
                         ->getAdapter()
                         ->select()
@@ -53,7 +57,9 @@ class Application_Model_Categoria {
                                     'cat.flagActivoCategoriaProducto',
                                     'cat.IdArea',
                                 )
-                        )->query()->fetch();
+                        )
+                ->where('cat.idCategoriaProducto = ?',$idCategoria)
+                ->query()->fetch();
         ;
     }
 
