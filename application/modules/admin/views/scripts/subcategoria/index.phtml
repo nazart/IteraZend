@@ -1,0 +1,31 @@
+<div>
+    [<a href="/admin/subcategoria/create-subcategoria">Nueva SubCategoria</a>]
+</div>
+<hr></hr>
+<table>
+    <tr>
+        <td>IdsubCategoria<hr></hr></td>
+        <td>Nombre<hr></hr></td>
+        <td>Estado<hr></hr></td>
+        <td>Categoria<hr></hr></td>
+        <td colspan="3" >Acciones<hr></hr></td>
+    </tr>
+<?php foreach($this->subCategoria as $index)
+{
+?>
+    <tr>
+        <td><?php echo $index['idSubCategoriaProducto'] ?></td>
+        <td><?php echo $index['NombreSubCategoriaProducto'] ?></td>
+        <td><?php echo $index['flagActivoSubCategoriaProducto']==1?'activo':'desactivo' ?></td>
+        <td><?php echo $index['NombreCategoriaProducto'] ?></td>
+        <td>[<a href="/admin/subcategoria/edit-subcategoria/subcat/<?php echo $index['idSubCategoriaProducto'] ?>">Editar</a>]</td>
+        <td>[<a href="/admin/subcategoria/delete-subcategoria/subcat/<?php echo $index['idSubCategoriaProducto'] ?>">Eliminar</a>]</td>
+        <?php if($index['flagActivoSubCategoriaProducto']==1){?>
+        <td>[<a href="/admin/subcategoria/desactive-subcategoria/subcat/<?php echo $index['idSubCategoriaProducto'] ?>">Desactivar</a>]</td>
+        <?php }else{ ?>
+        <td>[<a href="/admin/subcategoria/active-subcategoria/subcat/<?php echo $index['idSubCategoriaProducto'] ?>">Activar</a>]</td>
+        <?php } ?>
+    </tr>
+
+<?php } ?>
+</table>

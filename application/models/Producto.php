@@ -52,6 +52,7 @@ class Application_Model_Producto {
                         ))
                         ->joinLeft(array('ctgp' => $this->_modelCategoriaProducto->getName()), 'ctgp.IdArea = ar.IdArea', '')
                         ->joinLeft(array('sctgp' => $this->_modelSubCategoriaProducto->getName()), 'sctgp.IdCategoriaProducto=ctgp.IdCategoriaProducto', '')
+                        ->where('ctgp.flagActivoCategoriaProducto =?',1)
                         ->query()->fetchAll();
     }
 
