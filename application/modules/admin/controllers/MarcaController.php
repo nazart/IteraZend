@@ -24,15 +24,16 @@ class Admin_MarcaController extends CST_Controller_ActionAdmin {
         $this->_redirect('/admin/categoria/');
     }
 
-    public function createCategoriaAction() {
-        $form = new Application_Form_RegistroCategoria();
+    public function createMarcaAction() {
+        $form = new Application_Form_RegistroMarca();
         if ($this->_request->isPost()) {
-            if ($form->isValid($this->_request->getParams())) {
-                $categoria = new Application_Entity_Categoria();
+            if ($form->isValid($this->_request->getParams())) {                
+                //if (!$form->foo->receive()) {
+                $form->
+                $marca = new Application_Entity_Marca();
                 $values = $form->getValues();
-                $data['_nombre'] = $values['nombreCategoria'];
-                $data['_idArea'] = $values['area'];
-                $data['_flagActivo'] = $values['flagActivo'];
+                $data['_nombre'] = $values['nombreMarca'];
+                
                 $categoria->setProperties($data);
                 $categoria->createCategoria();
                 $this->_redirect('/admin/categoria/');
@@ -41,7 +42,7 @@ class Admin_MarcaController extends CST_Controller_ActionAdmin {
         $this->view->form = $form;
     }
 
-    public function editCategoriaAction() {
+    public function editMarcaAction() {
         $form = new Application_Form_RegistroCategoria();
         $entityCategoria = new Application_Entity_Categoria();
         $entityCategoria->identifyCategoria($this->_getParam('cat'));
