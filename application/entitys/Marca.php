@@ -15,16 +15,15 @@ class Application_Entity_Marca extends CST_Entity{
         $data = $this->setArrayBd();
         $this->_modelCategoria->editarCategoria($data,$this->_idCategoria);
     }
-    private function setArrayBd(){
-        $data['IdMarca']=$this->_idMarca;
+    private function setArrayBd(){        
         $data['NombreMarca']=$this->_nombreMarca;        
         $data['SlugMarca'] = $this->_slug;
-        return $data;
+         return $data;
     }
     public function createMarca(){
         $this->createSlug();
         $data = $this->setArrayBd();
-        $this->_modelCategoria->insertMarca($data);
+        $this->_modelMarca->insertMarca($data);
     }
     static function listarMarcaSociadasProducto($limit='')
     {        

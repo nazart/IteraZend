@@ -28,15 +28,13 @@ class Admin_MarcaController extends CST_Controller_ActionAdmin {
         $form = new Application_Form_RegistroMarca();
         if ($this->_request->isPost()) {
             if ($form->isValid($this->_request->getParams())) {                
-                //if (!$form->foo->receive()) {
-                $form->
+                //if (!$form->foo->receive()) {                
                 $marca = new Application_Entity_Marca();
                 $values = $form->getValues();
-                $data['_nombre'] = $values['nombreMarca'];
-                
-                $categoria->setProperties($data);
-                $categoria->createCategoria();
-                $this->_redirect('/admin/categoria/');
+                $data['_nombreMarca'] = $values['nombreMarca'];                
+                $marca->setProperties($data);
+                $marca->createMarca();
+                $this->_redirect('/admin/marca/');
             }
         }
         $this->view->form = $form;

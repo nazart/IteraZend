@@ -72,6 +72,15 @@ class Application_Model_Marca extends CST_Model{
                 ->query()
                 ->fetchAll();
     }
+    function insertMarca($data) {
+        $this->_modelMarca->insert($data);
+        return $this->_modelMarca->getAdapter()->lastInsertId();
+    }
+    function editarMarca($data,$idMarca) {
+        $where   = $this->_modelMarca->getAdapter()
+                ->quoteInto('IdMarca =?',$idMarca);
+        return $this->_modelMarca->update($data,$where);
+    }
 }
 
 ?>

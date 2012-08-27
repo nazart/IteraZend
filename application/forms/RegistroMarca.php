@@ -21,8 +21,10 @@ class Application_Form_RegistroMarca extends CST_Form {
        $this->addElement(new Zend_Form_Element_File('ImagenMarca',
                array('label'=>'Carga una Imagen'
                    )));
-       $this->getElement('ImagenMarca')->setDestination('/dinamic/marca')
-            ->setValueDisabled(true);
+       $this->getElement('ImagenMarca')->setDestination(APPLICATION_PATH.
+            '/../public/dinamic/img/imagen-soluciones/')
+            ->setValueDisabled(true)
+            ->setAttrib('enctype', 'multipart/form-data');
                
         $this->addElement(new Zend_Form_Element_Submit('Enviar',
                 array('attribs'=>array('class'=>'submit-button'))));
