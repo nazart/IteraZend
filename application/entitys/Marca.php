@@ -26,12 +26,14 @@ class Application_Entity_Marca extends CST_Entity{
         $this->_modelMarca->insertMarca($data);
     }
     static function listarMarcaSociadasProducto($limit='')
-    {        
-        return $this->_modelMarca->listarMarcasSociadasProducto($limit);
+    {   
+        $modelMarca = new Application_Model_Marca();
+        return $modelMarca->listarMarcasSociadasProducto($limit);
     }
     static function listarMarcasAsociadasProductoDestacados($limit ='')
     {        
-        return $this->_modelMarca->listarMarcasSociadasProductoDestacados($limit);
+        $modelMarca = new Application_Model_Marca();
+        return $modelMarca->listarMarcasSociadasProductoDestacados($limit);
     }
     
     static function listarMarcas($limit='')
