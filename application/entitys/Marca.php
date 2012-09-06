@@ -28,7 +28,11 @@ class Application_Entity_Marca extends CST_Entity{
         $this->_modelMarca->insertMarca($data);
     }
     static function listarMarcaSociadasProducto($limit='')
+<<<<<<< HEAD
     {        
+=======
+    {   
+>>>>>>> 67b283f203b35aa34ed1211bb9dfef94048195b8
         $modelMarca = new Application_Model_Marca();
         return $modelMarca->listarMarcasSociadasProducto($limit);
     }
