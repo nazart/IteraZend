@@ -18,14 +18,21 @@ class Application_Form_RegistroMarca extends CST_Form {
                         'AlfaNum'=>new Zend_Validate_Alnum(true)
                         ),
                     'size'=>'40')));
-       $this->addElement(new Zend_Form_Element_File('ImagenMarca',
-               array('label'=>'Carga una Imagen'
-                   )));
-       $this->getElement('ImagenMarca')->setDestination(APPLICATION_PATH.
-            '/../public/dinamic/img/imagen-soluciones/')
-            ->setValueDisabled(true)
-            ->setAttrib('enctype', 'multipart/form-data');
-               
+
+       
+       $this->addElement(new Zend_Form_Element_Image('imagenUpload'));
+        
+       $element = new Zend_Form_Element_File('imagenMarca');
+       $element->setLabel('Upload an image:')
+                ->setDestination(APPLICATION_PATH.
+                        '/../public/dinamic/img/marca/');
+       $element->addValidator('Count', false, 1);
+       $element->addValidator('Size', false, 1024000);
+       $element->addValidator('Extension', false, 'jpg,png,gif');
+       $this->addElement($element);
+       
+       
+       
         $this->addElement(new Zend_Form_Element_Submit('Enviar',
                 array('attribs'=>array('class'=>'submit-button'))));
     }

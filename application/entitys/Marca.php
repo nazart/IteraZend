@@ -5,15 +5,17 @@ class Application_Entity_Marca extends CST_Entity{
     public $_idMarca;
     public $_nombreMarca;    
     public $_slug;
-    
+    protected $_modelMarca;
+
+
     public function __construct() 
     {
-        $this->_modelMarca = new Application_Model_Marca();
+        $this->_modelMarca = new Application_Model_Marca();        
     }
     public function editMarca(){
         $this->createSlug();
         $data = $this->setArrayBd();
-        $this->_modelCategoria->editarCategoria($data,$this->_idCategoria);
+        $this->_modelMarca->editarCategoria($data,$this->_idCategoria);
     }
     private function setArrayBd(){        
         $data['NombreMarca']=$this->_nombreMarca;        
@@ -27,11 +29,13 @@ class Application_Entity_Marca extends CST_Entity{
     }
     static function listarMarcaSociadasProducto($limit='')
     {        
-        return $this->_modelMarca->listarMarcasSociadasProducto($limit);
+        $modelMarca = new Application_Model_Marca();
+        return $modelMarca->listarMarcasSociadasProducto($limit);
     }
     static function listarMarcasAsociadasProductoDestacados($limit ='')
     {        
-        return $this->_modelMarca->listarMarcasSociadasProductoDestacados($limit);
+        $modelMarca = new Application_Model_Marca();
+        return $modelMarca->listarMarcasSociadasProductoDestacados($limit);
     }
     
     static function listarMarcas($limit='')

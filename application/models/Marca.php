@@ -69,6 +69,7 @@ class Application_Model_Marca extends CST_Model{
     {
         return $this->_modelMarca
                 ->select()
+                ->where('EstadoMarca = ?',1)
                 ->query()
                 ->fetchAll();
     }
